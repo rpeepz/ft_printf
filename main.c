@@ -17,6 +17,6 @@ int		main(void)
 	int		i;
 
 	i = ft_printf("test");
-//	ft_printf("%s", i);
+	ft_printf(" blah blah %+sblah blah", i);
 	return (0);
 }

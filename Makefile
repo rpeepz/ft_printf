@@ -19,6 +19,8 @@ SRCS 	= srcs/do_things.c \
 		srcs/finders.c \
 		srcs/ft_printf.c \
 		srcs/get_mods.c \
+		printf_convert/convert_c.c \
+		printf_convert/convert_d.c \
 		main.c
 
 all:	$(NAME)
