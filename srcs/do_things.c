@@ -40,34 +40,35 @@ void		set_flags(t_flag *flags, char c)
 /*
 **	FLAGS
 **	' '		(f, F, d i)
-**space gives just one blank before output. can be overwritten by plus.
-**(c)	no effect
+**SPACE gives just one blank before output. can be overwritten by plus.
+**(c)no effect
 **	'+'		(d, i, f, F)
-**plus forces plus or minus sign before output of signed conversions.
-**(c)	no effect
+**PLUS forces plus or minus sign before output of signed conversions.
+**(c)no effect
 **	'0'		(all)
-**zero turns padding from blanks to zeros. if a precision is present
+**ZERO turns padding from blanks to zeros. if a precision is present
 **with the numeric conversion (d, i, o, u, x, X) the zero is ignored.
-**(c)	no effect
+**(c)no effect
 **	'-'		(all)
-**minus will set left alignment with padding to the right only by blanks
+**MINUS will set left alignment with padding to the right only by blanks
 **specified ammount in width. overrides the zero flag.
 **	'#'		(f, F, (e, E, g, G))
-**pound forces result to include decimal point.
-**	(o, x, X)outputs 0, 0x, 0X respectively to beginning of non zero numbers
-**	(g, G)trailing zeros are not removed
-**(c)	no effect
+**POUND forces result to include decimal point.
+**(o, x, X)outputs 0, 0x, 0X respectively to beginning of non zero numbers
+**(g, G)trailing zeros are not removed
+**(c)no effect
 **	WIDTH	(all)
 **controls min number of chars to print. if value is shorter result will
 **be padded with ' ' on left (or right if '-'). value is not truncated
-**can be combined with '0' flag.
+**can be combined with '0' flag (but not with '0' & '-').
+**(c)no effect unless used with '-'
 **	PRECISION	(d, i, o, u , x, X)
 **controls min number of digits to print. if no digit string assumed 0
 **if value is shorter result will be padded with '0' on left.
 **value is not truncated
-**	(f, F, (a, A, e, E)min number of digits to appear after decimal
-**	(g, G)max number of significant digits
-**	(s)max num of chars to print.
+**(f, F, (a, A, e, E)min number of digits to appear after decimal
+**(g, G)max number of significant digits
+**(s)max num of chars to print.
 **(c) no effect
 **	LENGTH
 **calls for specific "length" variable conversion
@@ -76,8 +77,8 @@ void		set_flags(t_flag *flags, char c)
 **	h	short			unsigned short
 **	l	long			unsigned long
 **	ll	long long		unsigned long long
-**		f, F, (e, E, g, G)	c		s
-**	l 	double				wint_t	wchar_t*
+**		f, F, (e, E, g, G)	(c, s)
+**	l 	double				(wint_t, wchar_t*)
 **	L	long double
-**if its not mentioned its undefined and therefore omitted
+**	if its not mentioned its undefined and therefore omitted
 */
