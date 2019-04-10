@@ -12,13 +12,36 @@
 
 #include "../includes/ft_printf.h"
 
-static int		right_padding(t_mods mods)
+static int		left_justify(int width, unsigned char c)
 {
-	if (mods.flags.minus && mods.width)
-		return (mods.width);
-	return (0);
+	int		n;
+
+	n = (int)write(1, &c, 1);
+	if (n < width)
+		while (n < width)
+			n += (int)write(1, " ", 1);
+	return (n);
 }
 
+static int		right_justify(int width, int fzero, unsigned char c)
+{
+	int		n;
+	int		i;
+
+	i = width;
+	if (fzero)
+	{
+		while (i-- > 1)
+			n = (int)write(1, "0", 1);
+	}
+	else
+	{
+		while (i-- > 1)
+			n = (int)write(1, " ", 1);
+	}
+	n += (int)write(1, &c, 1);
+	return (n);
+}
 /*
 **	c	The int argument is converted to an unsigned char,
 **		and the resulting character is written.
@@ -26,17 +49,16 @@ static int		right_padding(t_mods mods)
 
 int				convert_c(t_mods modifiers, va_list ap)
 {
-	int				nbyte;
-	int				i;
 	unsigned char	c;
 
 	c = va_arg(ap, int);
-	nbyte = write(1, &c, 1);
-	i = 0;
-	while (i < right_padding(modifiers))
-		if (c)
-		{
-			nbyte = 0;
-		}
-	return (nbyte);
+	if (modifiers.flags.minus == 1)
+	{
+		return (left_justify(modifiers.width, c));
+	}
+	if (modifiers.width > 1)
+	{
+		return (right_justify(modifiers.width, modifiers.flags.fzero, c));
+	}
+	return ((int)write(1, &c, 1));
 }
