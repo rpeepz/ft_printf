@@ -12,29 +12,26 @@
 
 #include "../includes/ft_printf.h"
 
-int				parse_string(char **str, va_list ap, int n)
+int				parse_string(char **str, va_list ap)
 {
 	int		i;
 	t_mods	modifier;
 
 	(*str)++;
-	modifier = get_mods(str, ap);
-	IF_THEN(!(i = get_type_specifier(**str)), n -= 9000);
-	while (n >= 0 && i)
-	{
-		BREAK(i == 1, n += convert_percent(modifier));
-		BREAK(i == 2, n += convert_d(modifier, ap) && (*str)++);
-		BREAK(i == 3, n += convert_c(modifier, ap) && (*str)++);
-		BREAK(i == 4, n += convert_s(modifier, ap) && (*str)++);
-		BREAK(i == 5, n += convert_p(modifier, ap) && (*str)++);
-		BREAK(i == 6, n += convert_o(modifier, ap) && (*str)++);
-		BREAK(i == 7, n += convert_u(modifier, ap) && (*str)++);
-		BREAK(i == 8, n += convert_x(modifier, ap) && (*str)++);
-		BREAK(i == 9, n += convert_f(modifier, ap) && (*str)++);
-		BREAK(i == 10, n += convert_k(modifier, ap) && (*str)++);
-		BREAK(i == 11, n += convert_help(modifier, ap) && (*str)++);
-	}
-	return (n >= 0 ? n : -1);
+	modifier = get_mods(*str, ap);
+	IF_RETURN(!(i = get_type_specifier(**str)), -9000);
+//	IF_RETURN(i == 1, convert_percent(modifier));
+//	IF_RETURN(i == 2, convert_d(modifier, ap));
+	IF_RETURN(i == 3, convert_c(modifier, ap));
+//	IF_RETURN(i == 4, convert_s(modifier, ap));
+//	IF_RETURN(i == 5, convert_p(modifier, ap));
+//	IF_RETURN(i == 6, convert_o(modifier, ap));
+//	IF_RETURN(i == 7, convert_u(modifier, ap));
+//	IF_RETURN(i == 8, convert_x(modifier, ap));
+//	IF_RETURN(i == 9, convert_f(modifier, ap));
+//	IF_RETURN(i == 10, convert_k(modifier, ap));
+//	IF_RETURN(i == 11, convert_help(modifier, ap));
+	return (42);
 }
 
 int				ft_printf(char *str, ...)
@@ -52,7 +49,10 @@ int				ft_printf(char *str, ...)
 			nbyte++;
 		}
 		else
-			nbyte += parse_string(&str, ap, 0);
+		{
+			nbyte += parse_string(&str, ap);
+			str++;
+		}
 	}
 	IF_THEN(nbyte < 0, errors(1, &str));
 	va_end(ap);

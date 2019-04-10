@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_mods.c                                          +:      :+:    :+:   */
+/*   get_mods.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpapagna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/08 01:55:21 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/08 01:55:22 by rpapagna         ###   ########.fr       */
+/*   Created: 2019/04/09 20:18:14 by rpapagna          #+#    #+#             */
+/*   Updated: 2019/04/09 20:18:16 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,10 +105,10 @@ t_mods			get_mods(char *str, va_list ap)
 {
 	t_mods modifiers;
 
-	modifiers.flags = get_flags(str);
-	modifiers.width = get_width(str, ap);
-	modifiers.precision = get_precision(str, ap);
-	modifiers.length = get_length(str);
+	modifiers.flags = get_flags(&str);
+	modifiers.width = get_width(&str, ap);
+	modifiers.precision = get_precision(&str, ap);
+	modifiers.length = get_length(&str);
 	return (modifiers);
 }
 /*
