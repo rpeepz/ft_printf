@@ -52,7 +52,7 @@ typedef struct	s_dispatch_specifier
 void			set_flags(t_flag *flags, char c);
 void			print_one(char **str);
 void			errors(int err_num, char **str);
-t_mods			get_mods(char *str, va_list ap);
+t_mods			get_mods(char **str, va_list ap);
 int				is_flag(char x);
 int				get_type_specifier(char x);
 /*

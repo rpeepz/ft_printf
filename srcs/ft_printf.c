@@ -18,8 +18,10 @@ int				parse_string(char **str, va_list ap)
 	t_mods	modifier;
 
 	(*str)++;
-	modifier = get_mods(*str, ap);
-	IF_RETURN(!(i = get_type_specifier(**str)), -9000);
+	modifier = get_mods(str, ap);
+	if ((i = get_type_specifier(**str)) < 1)
+		return (-9000);
+//	IF_RETURN(!(i = get_type_specifier(**str)), -9000);
 //	IF_RETURN(i == 1, convert_percent(modifier));
 //	IF_RETURN(i == 2, convert_d(modifier, ap));
 	IF_RETURN(i == 3, convert_c(modifier, ap));

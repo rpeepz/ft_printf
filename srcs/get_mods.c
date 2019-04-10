@@ -101,14 +101,14 @@ static int		get_length(char **str)
 	return (length);
 }
 
-t_mods			get_mods(char *str, va_list ap)
+t_mods			get_mods(char **str, va_list ap)
 {
 	t_mods modifiers;
 
-	modifiers.flags = get_flags(&str);
-	modifiers.width = get_width(&str, ap);
-	modifiers.precision = get_precision(&str, ap);
-	modifiers.length = get_length(&str);
+	modifiers.flags = get_flags(str);
+	modifiers.width = get_width(str, ap);
+	modifiers.precision = get_precision(str, ap);
+	modifiers.length = get_length(str);
 	return (modifiers);
 }
 /*
