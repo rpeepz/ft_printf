@@ -35,6 +35,7 @@ clean:
 		make -C libft clean
 
 fclean: clean
+		make -C libft fclean
 		rm -f $(NAME)
 		rm -rf $(NAME).dSYM
 
