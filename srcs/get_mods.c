@@ -115,4 +115,26 @@ t_mods			get_mods(char **str, va_list ap)
 **	the format for my getter functions were
 **	inspired by the great work of my friend, Chris Bagdon
 **	https://github.com/cbg119/42-ft_printf/blob/master/src/options.c
+**
+**	first function call in get_mods replace with below
+**	to add bitwise operation in order to improve speed
+**	modifiers.flag_bits = get_flags(str);
+**
+**	static void		set_bit(char **str, char bit)
+**	{
+**		do bit stuff
+**	}
+**	
+**	static char		get_flags(char **str)
+**	{
+**		char	bit;
+**	
+**		bit = 0;
+**		while (is_flag(**str))
+**		{
+**			set_bit(**str, &bit);
+**			(*str)++;
+**		}
+**		return (bit);
+**	}
 */
