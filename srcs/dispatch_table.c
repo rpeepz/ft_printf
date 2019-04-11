@@ -12,6 +12,21 @@
 
 #include "../includes/ft_printf.h"
 
+/*
+**int			table(t_mods*, va_list){
+**		convert_percent,
+**		convert_c,
+**		convert_d,
+**		convert_s,
+**		convert_p,
+**		convert_o,
+**		convert_u,
+**		convert_x,
+**		convert_f,
+**		convert_k,
+**		convert_help,
+**};
+*/
 t_dispatch_specifier	g_conversions[] =
 {
 	{'d', convert_d},
