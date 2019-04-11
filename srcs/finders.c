@@ -22,26 +22,21 @@ int		get_type_specifier(char x)
 	char	*str;
 	int		i;
 
-	i = 0;
+	i = -1;
 	str = "%dcspouxfk?";
-	while (str[i])
-	{
+	while (str[++i])
 		if (x == str[i])
 			return (i + 1);
-		i++;
-	}
 	str = ".i.....XFK.";
-	while (str[i])
-	{
+	while (--i >= 0)
 		if (x == str[i])
 			return (i + 1);
-		i++;
-	}
 	return (0);
 }
 /*
-** old version revised with help of
-** jmbomeyo
+**	below find old version
+**	revised with help of 
+**	jmbomeyo
 **int		get_type_specifier(char x)
 **{
 **	if (x == '%')
@@ -70,6 +65,6 @@ int		get_type_specifier(char x)
 **}
 **
 ** will try to incorporate the ability
-** to print a timestamp using 'k'
-** possibly mods for formatting
+** to print a timestamp using 'k' and 'K'
+** and possibly mods for formatting
 */
