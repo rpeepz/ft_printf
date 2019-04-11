@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 20:46:20 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/10 20:14:08 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/10 20:51:04 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ void		set_flags(t_flag *flags, char c)
 **	FLAGS
 **	' '		(f, F, d i)
 **SPACE gives just one blank before output. can be overwritten by plus.
-**(c)no effect
+**(c, %)no effect
 **	'+'		(d, i, f, F)
 **PLUS forces plus or minus sign before output of signed conversions.
-**(c)no effect
+**(c, %)no effect
 **	'0'		(all)
 **ZERO turns padding from blanks to zeros. if a precision is present
 **with the numeric conversion (d, i, o, u, x, X) the zero is ignored.
@@ -56,7 +56,7 @@ void		set_flags(t_flag *flags, char c)
 **POUND forces result to include decimal point.
 **(o, x, X)outputs 0, 0x, 0X respectively to beginning of non zero numbers
 **(g, G)trailing zeros are not removed
-**(c)no effect
+**(c, %)no effect
 **	WIDTH	(all)
 **controls min number of chars to print. if value is shorter result will
 **be padded with ' ' on left (or right if '-'). value is not truncated
@@ -69,7 +69,7 @@ void		set_flags(t_flag *flags, char c)
 **(f, F, (a, A, e, E)min number of digits to appear after decimal
 **(g, G)max number of significant digits
 **(s)max num of chars to print.
-**(c) no effect
+**(c, %) no effect
 **	LENGTH
 **calls for specific "length" variable conversion
 **		d, i			o, u, x, X
