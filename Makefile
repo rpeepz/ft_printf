@@ -21,6 +21,7 @@ SRCS 	= srcs/do_things.c \
 		srcs/get_mods.c \
 		printf_convert/convert_c.c \
 		printf_convert/convert_d.c \
+		printf_convert/convert_percent.c \
 		main.c
 
 all:	$(NAME)
