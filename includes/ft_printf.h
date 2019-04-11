@@ -20,7 +20,7 @@
 
 int				ft_printf(char *str, ...);
 /*
-** STRUCTURES
+**STRUCTURES
 */
 
 typedef struct	s_flag
@@ -43,10 +43,10 @@ typedef struct	s_mods
 typedef struct	s_dispatch_specifier
 {
 	char		specifier;
-	int			(*f)();
+	int			(*f)(t_mods, va_list);
 }				t_dispatch_specifier;
 /*
-** GETTING AND SETTING FUNCTIONS
+**GETTING AND SETTING FUNCTIONS
 */
 
 void			set_flags(t_flag *flags, char c);
@@ -56,7 +56,7 @@ t_mods			get_mods(char **str, va_list ap);
 int				is_flag(char x);
 int				get_type_specifier(char x);
 /*
-** CONVERSION FUNCTIONS
+**CONVERSION FUNCTIONS
 */
 
 int				convert_percent(t_mods modifiers);
@@ -70,5 +70,8 @@ int				convert_x(t_mods modifiers, va_list ap);
 int				convert_f(t_mods modifiers, va_list ap);
 int				convert_k(t_mods modifiers, va_list ap);
 int				convert_help(t_mods modifiers, va_list ap);
-
+/*
+**	char		flag_bits;
+**	add to t_mods for bitwise operation
+*/
 #endif
