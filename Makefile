@@ -6,7 +6,7 @@
 #    By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/13 21:22:38 by rpapagna          #+#    #+#              #
-#    Updated: 2019/04/10 22:37:36 by rpapagna         ###   ########.fr        #
+#    Updated: 2019/04/12 16:31:23 by rpapagna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,13 +19,13 @@ SRCS 	= srcs/do_things.c \
 		srcs/finders.c \
 		srcs/ft_printf.c \
 		srcs/get_mods.c \
+		printf_convert/convert_percent.c \
 		printf_convert/convert_c.c \
 		printf_convert/convert_d.c \
-		printf_convert/convert_o.c \
-		printf_convert/convert_percent.c \
-		printf_convert/convert_u.c \
-		printf_convert/convert_x.c \
 		main.c
+#		printf_convert/convert_o.c \
+#		printf_convert/convert_u.c \
+#		printf_convert/convert_x.c \
 
 all:	$(NAME)
 
