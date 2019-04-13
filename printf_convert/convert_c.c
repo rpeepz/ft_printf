@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 18:52:45 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/10 20:14:52 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/12 19:21:26 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ static int		right_justify(int width, int fzero, unsigned char c)
 	n += (int)write(1, &c, 1);
 	return (n);
 }
+
 /*
 **	c	The int argument is converted to an unsigned char,
 **		and the resulting character is written.
