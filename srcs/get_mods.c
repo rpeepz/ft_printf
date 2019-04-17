@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 20:18:14 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/10 20:13:29 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/16 20:40:03 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,11 +124,11 @@ t_mods			get_mods(char **str, va_list ap)
 **	{
 **		do bit stuff
 **	}
-**	
+**
 **	static char		get_flags(char **str)
 **	{
 **		char	bit;
-**	
+**
 **		bit = 0;
 **		while (is_flag(**str))
 **		{

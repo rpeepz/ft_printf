@@ -6,42 +6,63 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 23:11:29 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/12 19:45:02 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/15 22:34:53 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static int		right_justify(t_mods mods, char *num, int len, int nbyte)
+static int		left_justify(t_mods mod, char *num, int len, int nbyte)
 {
-	if (mods.flags.space && !mods.flags.fplus)
+	if (*num != '-')
+	{
+		if (mod.flags.fplus)
+			nbyte += (int)write(1, "+", 1);
+		else if (mod.flags.space && !mod.flags.fplus)
+			nbyte += (int)write(1, " ", 1);
+	}
+	else if (*num == '-')
+	{
+		nbyte += (int)write(1, num++, 1);
+		len--;
+	}
+	while (mod.precision - len > 0)
+		nbyte += (int)write(1, "0", (mod.precision-- - len));
+	nbyte += (int)write(1, num, len);
+	while (mod.width > nbyte)
 		nbyte += (int)write(1, " ", 1);
-	if (mods.flags.fplus && num[0] != '-')
-		nbyte += (int)write(1, "+", 1);
-	if (mods.precision > 0 && mods.precision > len)
-	{
-		while (mods.precision >= len && *num != '-')
-			nbyte += (int)write(1, "0", mods.precision--);
-		if (*num == '-')
-		{
-			nbyte += (int)write(1, '-', 1);
-			num++;
-			while (mods.precision >= len)
-				nbyte += (int)write(1, "0", mods.precision--);
-			return (nbyte += (int)write(1, num, len - 1));
-		}
-		return (nbyte += (int)write(1, num, len));
-	}
-	else if (mods.precision == 0)
-	{
-		if (mods.flags.fzero)
-			pad_left_zero();
-		else
-			pad_right_zero();
-	}
+	return (nbyte);
 }
 
-static int64_t	get_lengthmod(int length, va_list ap)
+static int		right_justify(t_mods mod, char *num, int len, int nbyte)
+{
+	if (*num == '-' && (len--))
+	{
+		IF_THEN(mod.flags.fplus == 1, mod.flags.fplus = 0);
+		while (nbyte < mod.width - mod.precision - mod.flags.fplus - 1)
+			nbyte += (int)write(1, " ", 1);
+		nbyte += (int)write(1, "-", 1);
+		num++;
+	}
+	else
+	{
+		if (!mod.flags.fplus && mod.flags.space)
+			nbyte += (int)write(1, " ", 1);
+		while (nbyte < mod.width - mod.precision)
+			nbyte += (int)write(1, " ", 1);
+		if (!nbyte)
+		{
+			while (nbyte < mod.width - mod.precision - mod.flags.fplus - 2)
+				nbyte += (int)write(1, " ", 1);
+			IF_THEN(mod.flags.fplus, nbyte += (int)write(1, "+", 1));
+		}
+	}
+	while (mod.precision-- > len)
+		nbyte += (int)write(1, "0", 1);
+	return (nbyte += (int)write(1, num, len));
+}
+
+static int64_t	convert_length(int length, va_list ap)
 {
 	int64_t		d;
 
@@ -71,31 +92,23 @@ static int64_t	get_lengthmod(int length, va_list ap)
 **			it is padded on the left with zeros.
 */
 
-int				convert_d(t_mods mods, va_list ap)
+int				convert_d(t_mods mod, va_list ap)
 {
-	int		d;
+	int64_t	variable;
+	int		len;
 	int		nbyte;
 	char	*num;
 
-	d = get_lengthmod(mods.length, ap);
-	num = ft_itoa(d);
-	d = (int)ft_strlen(num);
+	variable = convert_length(mod.length, ap);
+	num = ft_itoa(variable);
+	len = (int)ft_strlen(num);
 	nbyte = 0;
-	IF_THEN(mods.precision < 0, mods.precision == 0);
-	if (mods.width <= (d + mods.precision))
-	{
-		if (mods.flags.minus == 0)
-			nbyte += right_justify(mods, num, d, 0);
-		else
-			nbyte += left_justify(mods, num, d, 0);
-	}
+	IF_THEN(mod.precision < 0, mod.precision = 0);
+	IF_THEN(mod.width < mod.precision || mod.width < len, mod.width = 0);
+	if (mod.flags.minus == 1)
+		nbyte += left_justify(mod, num, len, 0);
 	else
-	{
-		if (mods.flags.minus == 0)
-			nbyte += right_justifybig(mods, num, d, 0);
-		else
-			nbyte += left_justifybig(mods, num, d, 0);
-	}
+		nbyte += right_justify(mod, num, len, 0);
 	free(num);
 	return (nbyte);
 }

@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 19:39:16 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/10 20:51:23 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/16 20:41:52 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,22 @@ static int		left_justify(int width)
 static int		right_justify(int width, int fzero)
 {
 	int		n;
-	int		i;
 
-	i = width;
+	n = 0;
 	if (fzero)
 	{
-		while (i-- > 1)
-			n = (int)write(1, "0", 1);
+		while (width-- > 1)
+			n += (int)write(1, "0", 1);
 	}
 	else
 	{
-		while (i-- > 1)
-			n = (int)write(1, " ", 1);
+		while (width-- > 1)
+			n += (int)write(1, " ", 1);
 	}
 	n += (int)write(1, "%", 1);
 	return (n);
 }
+
 /*
 **	%	A `%' is written.  No argument is converted.
 **		The complete conversion specification is `%%'.
@@ -57,5 +57,5 @@ int				convert_percent(t_mods modifiers)
 	{
 		return (right_justify(modifiers.width, modifiers.flags.fzero));
 	}
-	return((int)write(1, "%", 1));
+	return ((int)write(1, "%", 1));
 }

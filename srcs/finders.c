@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 21:07:17 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/10 20:13:45 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/16 20:40:24 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		get_type_specifier(char x)
 }
 /*
 **	below find old version
-**	revised with help of 
+**	revised with help of
 **	jmbomeyo
 **int		get_type_specifier(char x)
 **{

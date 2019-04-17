@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 22:34:52 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/12 16:21:41 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/16 20:12:54 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int				parse_string(char **str, va_list ap)
 
 	(*str)++;
 	modifier = get_mods(str, ap);
-	IF_RETURN(!(i = get_type_specifier(**str)), -9000);
+	IF_RETURN(!(i = get_type_specifier(**str)), 0);
 	IF_RETURN(i == 1, convert_percent(modifier));
 	IF_RETURN(i == 2, convert_d(modifier, ap));
 	IF_RETURN(i == 3, convert_c(modifier, ap));
@@ -41,7 +41,7 @@ int				ft_printf(char *str, ...)
 
 	nbyte = 0;
 	va_start(ap, str);
-	while (*str && nbyte >= 0)
+	while (*str)
 	{
 		if (*str != '%')
 		{
@@ -54,7 +54,7 @@ int				ft_printf(char *str, ...)
 			str++;
 		}
 	}
-	IF_THEN(nbyte < 0, errors(1, &str));
 	va_end(ap);
+	IF_THEN(nbyte < 0, nbyte = 0);
 	return (nbyte);
 }

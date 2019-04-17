@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpapagna <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 22:47:33 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/07 22:47:35 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/16 20:33:17 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# include "../libft/includes/libft.h"
+# include "libft.h"
 # include <stdarg.h>
 
 # define IF_THEN(X, Y) if(X) {(Y);}

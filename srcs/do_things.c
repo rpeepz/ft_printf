@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 20:46:20 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/10 20:51:04 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/12 17:22:52 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void		set_flags(t_flag *flags, char c)
 }
 /*
 **	FLAGS
-**	' '		(f, F, d i)
+**	' '		(d, i, f, F)
 **SPACE gives just one blank before output. can be overwritten by plus.
 **(c, %)no effect
 **	'+'		(d, i, f, F)
@@ -56,7 +56,7 @@ void		set_flags(t_flag *flags, char c)
 **POUND forces result to include decimal point.
 **(o, x, X)outputs 0, 0x, 0X respectively to beginning of non zero numbers
 **(g, G)trailing zeros are not removed
-**(c, %)no effect
+**(c, %, d)no effect
 **	WIDTH	(all)
 **controls min number of chars to print. if value is shorter result will
 **be padded with ' ' on left (or right if '-'). value is not truncated

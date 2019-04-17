@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 18:52:45 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/12 19:21:26 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/16 20:36:03 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,17 @@ static int		left_justify(int width, unsigned char c)
 static int		right_justify(int width, int fzero, unsigned char c)
 {
 	int		n;
-	int		i;
 
-	i = width;
+	n = 0;
 	if (fzero)
 	{
-		while (i-- > 1)
-			n = (int)write(1, "0", 1);
+		while (width-- > 1)
+			n += (int)write(1, "0", 1);
 	}
 	else
 	{
-		while (i-- > 1)
-			n = (int)write(1, " ", 1);
+		while (width-- > 1)
+			n += (int)write(1, " ", 1);
 	}
 	n += (int)write(1, &c, 1);
 	return (n);
