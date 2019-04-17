@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 22:34:52 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/16 20:12:54 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/17 05:18:16 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,20 @@ int				parse_string(char **str, va_list ap)
 	t_mods	modifier;
 
 	(*str)++;
-	modifier = get_mods(str, ap);
+	if (**str)
+		modifier = get_mods(str, ap);
 	IF_RETURN(!(i = get_type_specifier(**str)), 0);
-	IF_RETURN(i == 1, convert_percent(modifier));
-	IF_RETURN(i == 2, convert_d(modifier, ap));
-	IF_RETURN(i == 3, convert_c(modifier, ap));
-//	IF_RETURN(i == 4, convert_s(modifier, ap));
-//	IF_RETURN(i == 5, convert_p(modifier, ap));
-//	IF_RETURN(i == 6, convert_o(modifier, ap));
-//	IF_RETURN(i == 7, convert_u(modifier, ap));
-//	IF_RETURN(i == 8, convert_x(modifier, ap));
-//	IF_RETURN(i == 9, convert_f(modifier, ap));
-//	IF_RETURN(i == 10, convert_k(modifier, ap));
-//	IF_RETURN(i == 11, convert_help(modifier, ap));
+	IF_RETURN(i == 1 && (*str)++, convert_percent(modifier));
+	IF_RETURN(i == 2 && (*str)++, convert_d(modifier, ap));
+	IF_RETURN(i == 3 && (*str)++, convert_c(modifier, ap));
+	IF_RETURN(i == 4 && (*str)++, convert_s(modifier, ap));
+//	IF_RETURN(i == 5 && (*str)++, convert_p(modifier, ap));
+//	IF_RETURN(i == 6 && (*str)++, convert_o(modifier, ap));
+//	IF_RETURN(i == 7 && (*str)++, convert_u(modifier, ap));
+//	IF_RETURN(i == 8 && (*str)++, convert_x(modifier, ap));
+//	IF_RETURN(i == 9 && (*str)++, convert_f(modifier, ap));
+//	IF_RETURN(i == 10 && (*str)++, convert_k(modifier, ap));
+//	IF_RETURN(i == 11 && (*str)++, convert_help(modifier, ap));
 	return (42);
 }
 
@@ -51,7 +52,6 @@ int				ft_printf(char *str, ...)
 		else
 		{
 			nbyte += parse_string(&str, ap);
-			str++;
 		}
 	}
 	va_end(ap);

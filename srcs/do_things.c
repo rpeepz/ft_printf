@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 20:46:20 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/12 17:22:52 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/16 21:28:11 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ void		set_flags(t_flag *flags, char c)
 **	FLAGS
 **	' '		(d, i, f, F)
 **SPACE gives just one blank before output. can be overwritten by plus.
-**(c, %)no effect
+**(c, %, s)no effect
 **	'+'		(d, i, f, F)
 **PLUS forces plus or minus sign before output of signed conversions.
-**(c, %)no effect
+**(c, %, s)no effect
 **	'0'		(all)
 **ZERO turns padding from blanks to zeros. if a precision is present
 **with the numeric conversion (d, i, o, u, x, X) the zero is ignored.
-**(c)no effect
+**(c, s)no effect unless used with width
 **	'-'		(all)
 **MINUS will set left alignment with padding to the right only by blanks
 **specified ammount in width. overrides the zero flag.
@@ -56,12 +56,12 @@ void		set_flags(t_flag *flags, char c)
 **POUND forces result to include decimal point.
 **(o, x, X)outputs 0, 0x, 0X respectively to beginning of non zero numbers
 **(g, G)trailing zeros are not removed
-**(c, %, d)no effect
+**(c, %, d, s)no effect
 **	WIDTH	(all)
 **controls min number of chars to print. if value is shorter result will
 **be padded with ' ' on left (or right if '-'). value is not truncated
 **can be combined with '0' flag (but not with '0' & '-').
-**(c)no effect unless used with '-'
+**(c)no effect unless used with '-' or '0'
 **	PRECISION	(d, i, o, u , x, X)
 **controls min number of digits to print. if no digit string assumed 0
 **if value is shorter result will be padded with '0' on left.
