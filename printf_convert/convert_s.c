@@ -6,11 +6,22 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 20:59:06 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/17 04:51:49 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/22 15:07:06 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+**	s	The char* argument is expected to be a pointer to an array of character
+**		type (pointer to a string).
+**		Characters from the array are written up to (but not including) a
+**		terminating NULL character; if a precision is specified, no more than
+**		the number specified are written.
+**		If a precision is given, no null character need be present;
+**		if the precision is not specified, or is greater than the size of the
+**		array, the array must contain a terminating NUL character.
+*/
 
 static int	left_justify(t_mods mod, char *s)
 {
@@ -41,17 +52,6 @@ static int	right_justify(t_mods mod, char *s)
 	return (nbyte += (int)write(1, s, ft_strlen(s)));
 }
 
-/*
-**	s	The char* argument is expected to be a pointer to an array of character
-**		type (pointer to a string).
-**		Characters from the array are written up to (but not including) a
-**		terminating NULL character; if a precision is specified, no more than
-**		the number specified are written.
-**		If a precision is given, no null character need be present;
-**		if the precision is not specified, or is greater than the size of the
-**		array, the array must contain a terminating NUL character.
-*/
-
 int			convert_s(t_mods modifiers, va_list ap)
 {
 	char	*s;
@@ -61,7 +61,7 @@ int			convert_s(t_mods modifiers, va_list ap)
 	s = va_arg(ap, char *);
 	IF_THEN(!s, s = "(null)");
 	nbyte = 0;
-	if (modifiers.precision > 0 && modifiers.precision < (int)ft_strlen(s))
+	if (modifiers.precision >= 0 && modifiers.precision < (int)ft_strlen(s))
 		s2 = ft_strndup(s, modifiers.precision);
 	else
 		s2 = ft_strdup(s);

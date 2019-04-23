@@ -6,11 +6,16 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 19:39:16 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/16 20:41:52 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/22 13:51:06 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+**	%	A `%' is written.  No argument is converted.
+**		The complete conversion specification is `%%'.
+*/
 
 static int		left_justify(int width)
 {
@@ -41,11 +46,6 @@ static int		right_justify(int width, int fzero)
 	n += (int)write(1, "%", 1);
 	return (n);
 }
-
-/*
-**	%	A `%' is written.  No argument is converted.
-**		The complete conversion specification is `%%'.
-*/
 
 int				convert_percent(t_mods modifiers)
 {
