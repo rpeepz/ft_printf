@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 22:34:38 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/17 04:32:56 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/22 14:39:45 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,6 @@ int		main(void)
 //	ft_printf("10w.5zero  :%010.5d.\n", n2);
 //	ft_printf("10w.5zeroSP:%0 10.5d.\n", n1);
 //	ft_printf("10w.5zeroSP:%0 10.5d.\n", n2);
-	ft_printf("%10.2s is a string", NULL);
+	ft_printf("%10s is a string", NULL);
 	return (0);
 }
