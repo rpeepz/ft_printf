@@ -6,7 +6,7 @@
 #    By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/13 21:22:38 by rpapagna          #+#    #+#              #
-#    Updated: 2019/04/22 18:46:28 by rpapagna         ###   ########.fr        #
+#    Updated: 2019/04/22 19:07:53 by rpapagna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,6 @@ SRCS 	= do_things.c \
 		finders.c \
 		ft_printf.c \
 		get_mods.c
-#		main.c
 
 CONV	= convert_percent.c \
 		convert_c.c \
@@ -28,6 +27,7 @@ CONV	= convert_percent.c \
 #		convert_o.c \
 #		convert_u.c \
 #		convert_x.c \
+#		convert_p.c \
 
 LIBS	= ft_atoi.c \
 		ft_bzero.c \
@@ -103,17 +103,24 @@ OBJ		= $(patsubst %.c,%.o,$(SRCS))
 OBJ		+= $(patsubst %.c,%.o,$(CONV))
 OBJ		+= $(patsubst %.c,%.o,$(LIBS))
 
+#COLOR OUTPUT OPIONS
+RED		=\033[0;31m
+GREEN	=\033[0;32m
+YELLOW	=\033[0;33m
+NC		=\033[0m
+
 all:	$(NAME)
 
 $(NAME):
-		@echo "Building libftprintf.a"
-		gcc $(CFLAGS) -c $(addprefix srcs/,$(SRCS)) $(addprefix printf_convert/,$(CONV)) $(addprefix libft/, $(LIBS)) $(INCL)
+		@echo "$(GREEN)Building libftprintf.a$(NC)"
+		@gcc $(CFLAGS) -c $(addprefix srcs/,$(SRCS)) $(addprefix printf_convert/,$(CONV)) $(addprefix libft/, $(LIBS)) $(INCL)
 		ar -rcs $(NAME) $(OBJ)
-		@echo "done"
+		@echo "$(RED)done$(NC)"
+		@mkdir obj && mv $(OBJ) obj
 
 clean:
-		@echo "removing obj"
-		@rm -rf $(OBJ)
+		@echo "$(YELLOW)removing obj$(NC)"
+		@rm -rf obj
 
 fclean: clean
 		@rm -rf $(NAME)
