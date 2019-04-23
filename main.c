@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 22:34:38 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/22 14:39:45 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/22 18:54:29 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,325 @@
 
 int		main(void)
 {
+//checks for working libc printf funcitons
+	int a1 = 1;
+	int a2 = -2;
+	int b1 = 10;
+	int b2 = -20;
+	int c1 = 100;
+	int c2 = -200;
+	char d = 'A';
+	char e = 'B';
+	char f = 'C';
+	char *s1 = "hi";
+	char *s2 = "hello";
+	double x = 1.1;
+	float y = 3.14;
+//	printf("% -d.%-d.%-d\n% -c.%-c\n\n", a, b , c, d, e);
+//	printf("%+ c.%-0 c.%      c", 49, e, 'g');
+//	printf("%-+0.c.%-+0c.%-+ 03c.", d, e, f);
+//	printf("%-3.6c.%-6.c.%-6.3c.%6.3c.%.3c.%4c.", d, e, f, 'W', 'X', 'Y');
+//	printf("%-03c.%-02c.%-01c.",d, e, f);
+//	int p = (int)write(1, ".", 1);
+//	printf("%d", p);
+//	printf("%01c.%1c.%.1c.", d, e, f);
+//	printf("%%.%-05%.%+%.%05%.% .5h%.");
+//	printf("%#%.");
+//	printf("positive:%d, %d, %Ld\n", a1, b1, c1);
+//	printf("pos h   :%hd, %hd, %hd\n", a1, b1, c1);
+//	printf("pos hh  :%hhd, %hhd, %hhd\n", a1, b1, c1);
+//	printf("pos l   :%ld, %ld, %ld\n", a1, b1, c1);
+//	printf("pos ll  :%lld, %lld, %lld\n", a1, b1, c1);
+//	printf("negative:%d, %d, %Ld\n", a2, b2, c2);
+//	printf("neg h   :%hd, %hd\n", a2, b2, c2);
+//	printf("neg hh  :%hhd, %hhd, %hhd\n", a2, b2, c2);
+//	printf("neg l   :%ld, %ld, %ld\n", a2, b2, c2);
+//	printf("neg ll  :%lld, %lld, %lld\n", a2, b2, c2);
+//	printf("+ flag p:%+d, %+d, %+d\n", a1, b1, c1);
+//	printf("+ flag n:%+d, %+d, %+d\n", a2, b2, c2);
+//	printf("sp flag :%      d, % d\n", c1, c2);
+//	printf("0 flag  :%000d\n", a1);
+//	printf("- flag  :%-d, %-----d\n", b1, b2);
+//	int po = printf("...|%c|...\n", '\0');
+//	int bo = printf("...|%c|...\n", 0);
+//	printf("%d\n", po);
+//	printf("%d\n", bo);
+	int n1 = 400;
+	int n2 = -400;
+//	printf("single flag\n");
+//	printf("space	+d:% d\n", n1);
+//	printf("space	-d:% d\n", n2);
+//	printf("plus	+d:%+d\n", n1);
+//	printf("plus	-d:%+d\n", n2);
+//	printf("zero	+d:%0d\n", n1);
+//	printf("zero	-d:%0d\n", n2);
+//	printf("minus	+d:%-d\n", n1);
+//	printf("minus	-d:%-d\n", n2);
+//	printf("pound	+d:%#d\n", n1);
+//	printf("pound	-d:%#d\n\n", n2);
+//
+//	printf("+ and single flag\n");
+//	printf("space +	+d:% +d\n", n1);
+//	printf("space +	-d:% +d\n", n2);
+//	printf("0 +	+d:%0+d\n", n1);
+//	printf("0 +	-d:%0+d\n", n2);
+//	printf("- +	+d:%-+d\n", n1);
+//	printf("- +	-d:%-+d\n", n2);
+//	printf("# +	+d:%#+d\n", n1);
+//	printf("# +	-d:%#+d\n\n", n2);
+//
+//	printf("sapce and single flag\n");
+//	printf("0 space	+d:%0 d\n", n1);
+//	printf("0 space	-d:%0 d\n", n2);
+//	printf("- space	+d:%- d\n", n1);
+//	printf("- space	-d:%- d\n", n2);
+//	printf("# space	+d:%# d\n", n1);
+//	printf("# space	-d:%# d\n\n", n2);
+//
+//	printf("zero and single flag\n");
+//	printf("- 0	+d:%-0d\n", n1);
+//	printf("- 0	-d:%-0d\n", n2);
+//	printf("# 0	+d:%#0d\n", n1);
+//	printf("# 0	-d:%#0d\n\n", n2);
+//pound is useless here
+//	printf("minus and single flag\n");
+//	printf("# -	+d:%#-d\n", n1);
+//	printf("# -	-d:%#-d\n", n2);
+
+//	printf("flags with width\n");
+//	printf("single flag width 4\n");
+//	printf("space	d:% 4d\n", n1);
+//	printf("space	d:% 4d\n", n2);
+//	printf("plus	d:%+4d\n", n1);
+//	printf("plus	d:%+4d\n", n2);
+//	printf("zero	d:%04d\n", n1);
+//	printf("zero	d:%04d\n", n2);
+//	printf("minus	d:%-4d\n", n1);
+//	printf("minus	d:%-4d\n\n", n2);
+//
+//	printf("+ and single flag width 4\n");
+//	printf("space +	d:% +4d\n", n1);
+//	printf("space +	d:% +4d\n", n2);
+//	printf("0 +	d:%0+4d\n", n1);
+//	printf("0 +	d:%0+4d\n", n2);
+//	printf("- +	d:%-+4d\n", n1);
+//	printf("- +	d:%-+4d\n\n", n2);
+//
+//	printf("sapce and single flag width 4\n");
+//	printf("0 space	+d:%0 4d\n", n1);
+//	printf("0 space	-d:%0 4d\n", n2);
+//	printf("- space	+d:%- 4d\n", n1);
+//	printf("- space	-d:%- 4d\n\n", n2);
+//
+//	printf("zero and single flag width 4\n");
+//	printf("- 0	+d:%-04d\n", n1);
+//	printf("- 0	-d:%-04d\n\n", n2);
+
+//	printf("percision\n");
+//	printf(".1 :%.1d\n", n1);
+//	printf(".1 :%.1d\n", n2);
+//	printf(".2 :%.2d\n", n1);
+//	printf(".2 :%.2d\n", n2);
+//	printf(".5 :%.5d\n", n1);
+//	printf(".5 :%.5d\n\n", n2);
+	
+//	printf("width with zero flag and plus\n");
+//	printf("1 :%+01d\n", n1);
+//	printf("1 :%+01d\n", n2);
+//	printf("3 :%+03d\n", n1);
+//	printf("3 :%+03d\n", n2);
+//	printf("10:%+010d\n", n1);
+//	printf("10:%+010d\n", n2);
+//	printf("-5:%+0-5d\n", n1);
+//	printf("-5:%+0-5d\n\n", n2);
+//
+//	printf("width with zero flag and plus\n");
+//	printf("01 :%+01d\n", n1);
+//	printf("01 :%+01d\n", n2);
+//	printf(" 1 :%+ 1d\n", n1);
+//	printf(" 1 :%+ 1d\n", n2);
+//	printf("03 :%+03d\n", n1);
+//	printf("03 :%+03d\n", n2);
+//	printf(" 3 :%+ 3d\n", n1);
+//	printf(" 3 :%+ 3d\n", n2);
+//	printf("010:%+010d\n", n1);
+//	printf("010:%+010d\n", n2);
+//	printf(" 10:%+ 10d\n", n1);
+//	printf(" 10:%+ 10d\n", n2);
+//	printf("5 :%+5d\n", n1);
+//	printf("5 :%+5d\n\n", n2);
+//	printf("5.8 :%+5.8d\n", n1);
+//	printf("5.8 :%+5.8d\n", n2);
+//	printf("5.4 :%+5.4d\n", n1);
+//	printf("5.4 :%+5.4d\n\n", n2);
+//	printf("10.8 :%+10.8d\n", n1);
+//	printf("10.8 :%+10.8d\n", n2);
+//	printf("10.4 :%+10.4d\n", n1);
+//	printf("10.4 :%+10.4d\n\n", n2);
+//
+//	printf("10w plus space:% +10d\n", n1);
+//	printf("10w plus space:% +10d\n", n2);
+//	printf("10w space     :% 10d\n", n1);
+//	printf("10w space     :% 10d\n\n", n2);
+
+//	printf("percision and width of 8\n");
+//	printf(".1 :%8.1d\n", n1);
+//	printf(".1 :%8.1d\n", n2);
+//	printf(".2 :%8.2d\n", n1);
+//	printf(".2 :%8.2d\n", n2);
+//	printf(".5 :%8.5d\n", n1);
+//	printf(".5 :%8.5d\n\n", n2);
+//	printf("percision and width of 4\n");
+//	printf(".1 :%4.1d\n", n1);
+//	printf(".1 :%4.1d\n", n2);
+//	printf(".2 :%4.2d\n", n1);
+//	printf(".2 :%4.2d\n", n2);
+//	printf(".5 :%4.5d\n", n1);
+//	printf(".5 :%4.5d\n\n", n2);
+//	printf("percision and width of 2\n");
+//	printf(".1 :%2.1d\n", n1);
+//	printf(".1 :%2.1d\n", n2);
+//	printf(".2 :%2.2d\n", n1);
+//	printf(".2 :%2.2d\n", n2);
+//	printf(".5 :%2.5d\n", n1);
+//	printf(".5 :%2.5d\n\n", n2);
+//	printf("percision 7 and width of ?\n");
+//	printf(".7    :%0 .7d\n", n1);
+//	printf(".7    :%0 .7d\n", n2);
+//	printf(".7 10w:%0 10.7d\n", n1);
+//	printf(".7 10w:%0 10.7d\n", n2);
+//	printf(".7 4w :%0 4.7d\n", n1);
+//	printf(".7 4w :%0 4.7d\n\n", n2);
+
+//	printf("-            :%-d.\n", n1);
+//	printf("-            :%-d.\n", n2);
+//	printf("- space      :%- d.\n", n1);
+//	printf("- space      :%- d.\n", n2);
+//	printf("-+space      :%-+ d.\n", n1);
+//	printf("-+space      :%-+ d.\n", n2);
+//	printf("1w-          :%-1d.\n", n1);
+//	printf("1w-          :%-1d.\n", n2);
+//	printf("1w- space    :%- 1d.\n", n1);
+//	printf("1w- space    :%- 1d.\n", n2);
+//	printf("1w-+space    :%-+ 1d.\n", n1);
+//	printf("1w-+space    :%-+ 1d.\n", n2);
+//	printf("5w-          :%-5d.\n", n1);
+//	printf("5w-          :%-5d.\n", n2);
+//	printf("5w- space    :%- 5d.\n", n1);
+//	printf("5w- space    :%- 5d.\n", n2);
+//	printf("5w-+space    :%-+ 5d.\n", n1);
+//	printf("5w-+space    :%-+ 5d.\n", n2);
+//	printf("10w-         :%-10d.\n", n1);
+//	printf("10w-         :%-10d.\n", n2);
+//	printf("10w- space   :%- 10d.\n", n1);
+//	printf("10w- space   :%- 10d.\n", n2);
+//	printf("10w-+space   :%-+ 10d.\n", n1);
+//	printf("10w-+space   :%-+ 10d.\n\n", n2);
+//
+//	printf("-         .2 :%-.2d.\n", n1);
+//	printf("-         .2 :%-.2d.\n", n2);
+//	printf("- space   .2 :%- .2d.\n", n1);
+//	printf("- space   .2 :%- .2d.\n", n2);
+//	printf("-+space   .2 :%-+ .2d.\n", n1);
+//	printf("-+space   .2 :%-+ .2d.\n", n2);
+//	printf("1w-       .2 :%-1.2d.\n", n1);
+//	printf("1w-       .2 :%-1.2d.\n", n2);
+//	printf("1w- space .2 :%- 1.2d.\n", n1);
+//	printf("1w- space .2 :%- 1.2d.\n", n2);
+//	printf("1w-+space .2 :%-+ 1.2d.\n", n1);
+//	printf("1w-+space .2 :%-+ 1.2d.\n", n2);
+//	printf("5w-       .2 :%-5.2d.\n", n1);
+//	printf("5w-       .2 :%-5.2d.\n", n2);
+//	printf("5w- space .2 :%- 5.2d.\n", n1);
+//	printf("5w- space .2 :%- 5.2d.\n", n2);
+//	printf("5w-+space .2 :%-+ 5.2d.\n", n1);
+//	printf("5w-+space .2 :%-+ 5.2d.\n", n2);
+//	printf("10w-      .2 :%-10.2d.\n", n1);
+//	printf("10w-      .2 :%-10.2d.\n", n2);
+//	printf("10w- space.2 :%- 10.2d.\n", n1);
+//	printf("10w- space.2 :%- 10.2d.\n", n2);
+//	printf("10w-+space.2 :%-+ 10.2d.\n", n1);
+//	printf("10w-+space.2 :%-+ 10.2d.\n\n", n2);
+//	
+//	printf("-         .6 :%-.6d.\n", n1);
+//	printf("-         .6 :%-.6d.\n", n2);
+//	printf("- space   .6 :%- .6d.\n", n1);
+//	printf("- space   .6 :%- .6d.\n", n2);
+//	printf("-+space   .6 :%-+ .6d.\n", n1);
+//	printf("-+space   .6 :%-+ .6d.\n", n2);
+//	printf("1w-       .6 :%-1.6d.\n", n1);
+//	printf("1w-       .6 :%-1.6d.\n", n2);
+//	printf("1w- space .6 :%- 1.6d.\n", n1);
+//	printf("1w- space .6 :%- 1.6d.\n", n2);
+//	printf("1w-+space .6 :%-+ 1.6d.\n", n1);
+//	printf("1w-+space .6 :%-+ 1.6d.\n", n2);
+//	printf("5w-       .6 :%-5.6d.\n", n1);
+//	printf("5w-       .6 :%-5.6d.\n", n2);
+//	printf("5w- space .6 :%- 5.6d.\n", n1);
+//	printf("5w- space .6 :%- 5.6d.\n", n2);
+//	printf("5w-+space .6 :%-+ 5.6d.\n", n1);
+//	printf("5w-+space .6 :%-+ 5.6d.\n", n2);
+//	printf("10w-      .6 :%-10.6d.\n", n1);
+//	printf("10w-      .6 :%-10.6d.\n", n2);
+//	printf("10w- space.6 :%- 10.6d.\n", n1);
+//	printf("10w- space.6 :%- 10.6d.\n", n2);
+//	printf("10w-+space.6 :%-+ 10.6d.\n", n1);
+//	printf("10w-+space.6 :%-+ 10.6d.\n\n", n2);
+	
+//	printf(".4         :%-.8d.\n", n1);
+//	printf(".4         :%-.8d.\n", n2);
+	
+//	printf(".5         :%.5d.\n", n1);
+//	printf(".5         :%.5d.\n", n2);
+//	printf(".5space    :% .5d.\n", n1);
+//	printf(".5space    :% .5d.\n", n2);
+//	printf(".5space+   :% +.5d.\n", n1);
+//	printf(".5space+   :% +.5d.\n", n2);
+//	printf(".5zero     :%0.5d.\n", n1);
+//	printf(".5zero     :%0.5d.\n", n2);
+//	printf(".5zeroSP   :% 0.5d.\n", n1);
+//	printf(".5zeroSP   :% 0.5d.\n", n2);
+//	printf("5w.5space  :% 5.5d.\n", n1);
+//	printf("5w.5space  :% 5.5d.\n", n2);
+//	printf("5w.5space+ :% +5.5d.\n", n1);
+//	printf("5w.5space+ :% +5.5d.\n", n2);
+//	printf("5w.5zero   :%05.5d.\n", n1);
+//	printf("5w.5zero   :%05.5d.\n", n2);
+//	printf("5w.5zeroSP :%0 5.5d.\n", n1);
+//	printf("5w.5zeroSP :% 05.5d.\n", n2);
+//	printf("10w.5space :% 10.5d.\n", n1);
+//	printf("10w.5space :% 10.5d.\n", n2);
+//	printf("10w.5space+:% +10.5d.\n", n1);
+//	printf("10w.5space+:% +10.5d.\n", n2);
+//	printf("10w.5zero  :%010.5d.\n", n1);
+//	printf("10w.5zero  :%010.5d.\n", n2);
+//	printf("10w.5zeroSP:%0 10.5d.\n", n1);
+//	printf("10w.5zeroSP:%0 10.5d.\n", n2);
+//	printf("%d\n", n1);
+//	printf("%d\n", n2);
+//	printf("%d\n", n1);
+//	printf("%d\n", n2);
+//	printf("%d\n", n1);
+//	printf("%d\n", n2);
+//	printf("%d\n", n1);
+//	printf("%d\n", n2);
+//	printf("%5%\n");
+//	printf("%05%\n");
+
+//	printf(".% s..", "string test.\n");
+//	printf(".%        s..", "test.\n");
+//	printf("%+s", "test.\n");
+//	printf("%-05c.\n%0.5c.\n\n", 'a', 'b');
+//	printf("%-05s.\n%0.5s.\n%-05.5s.\n\n", "abc", "abc", "abc");
+//	printf("%-05s.\n%0.5s.\n%-05.5s.\n\n", "abcdef", "abcdef", "abcdef");
+//	printf("%-010s.\n%0.5s.\n%-010.5s.\n\n", "aXcdef", "aXcdef", "aXcdef");
+//	printf("%-05s.\n%0.10s.\n%-05.10s.\n\n", "aXYcdef", "aXYcdef", "aXYcdef");
+
+	printf(".%-10.5s.\n", "123456");
+	printf(".%-6.5s.\n\n\n", "123456");
+
+	ft_printf("these are tests for my own printf vs libc printf\n\n\n");
+
 	char	c;
 	char	*s;
 	int		i;
