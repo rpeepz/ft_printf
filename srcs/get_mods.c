@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 20:18:14 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/16 20:40:03 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/22 13:42:26 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ t_mods			get_mods(char **str, va_list ap)
 **	inspired by the great work of my friend, Chris Bagdon
 **	https://github.com/cbg119/42-ft_printf/blob/master/src/options.c
 **
-**	first function call in get_mods replace with below
+**	first function call in get_mods may be replaced with below
 **	to add bitwise operation in order to improve speed
 **	modifiers.flag_bits = get_flags(str);
 **

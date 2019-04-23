@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 21:07:17 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/17 05:01:04 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/22 13:48:51 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,10 @@ int		get_type_specifier(char x)
 	return (0);
 }
 /*
-**	below find old version
-**	revised with help of
-**	jmbomeyo
-**int		get_type_specifier(char x)
-**{
+**	below find old version revised with help of jmbomeyo
+**
+**	int		get_type_specifier(char x)
+**	{
 **	if (x == '%')
 **		return (1);
 **	else if (x == 'd' || x == 'i')
@@ -62,7 +61,7 @@ int		get_type_specifier(char x)
 **	else if (x == '?')
 **		return (11);
 **	return (0);
-**}
+**	}
 **
 ** will try to incorporate the ability
 ** to print a timestamp using 'k' and 'K'

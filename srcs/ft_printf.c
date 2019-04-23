@@ -6,11 +6,17 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 22:34:52 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/17 05:18:16 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/22 13:55:02 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+**	Produces output according to a format string passed into funtion.
+**	parses and converts variables to output based on conversion symbols
+**	as standard logic for basic printf.
+*/
 
 int				parse_string(char **str, va_list ap)
 {
@@ -20,7 +26,12 @@ int				parse_string(char **str, va_list ap)
 	(*str)++;
 	if (**str)
 		modifier = get_mods(str, ap);
-	IF_RETURN(!(i = get_type_specifier(**str)), 0);
+	if (!(i = get_type_specifier(**str)))
+	{
+		if (**str)
+			(*str)++;
+		return (0);
+	}
 	IF_RETURN(i == 1 && (*str)++, convert_percent(modifier));
 	IF_RETURN(i == 2 && (*str)++, convert_d(modifier, ap));
 	IF_RETURN(i == 3 && (*str)++, convert_c(modifier, ap));
