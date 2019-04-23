@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 21:14:12 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/17 04:41:30 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/22 16:20:59 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <unistd.h>
 
 # define IS_SPACE(x) (x == ' ' || x == '\t' || x == '\r' || x == '\f')
+# define IF_THEN(X, Y) if(X) {(Y);}
 
 size_t				ft_strlen(const char *str);
 char				*ft_strdup(const char *s1);

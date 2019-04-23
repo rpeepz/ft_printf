@@ -6,7 +6,7 @@
 #    By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/13 21:22:38 by rpapagna          #+#    #+#              #
-#    Updated: 2019/04/17 04:44:15 by rpapagna         ###   ########.fr        #
+#    Updated: 2019/04/22 18:46:28 by rpapagna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ LIBS	= ft_atoi.c \
 		ft_isprint.c \
 		ft_isupper.c \
 		ft_itoa.c \
+		ft_itoa_base.c \
 		ft_lstadd.c \
 		ft_lstdel.c \
 		ft_lstdelone.c \
