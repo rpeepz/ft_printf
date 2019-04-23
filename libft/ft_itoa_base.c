@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/20 00:13:27 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/22 15:16:04 by rpapagna         ###   ########.fr       */
+/*   Created: 2019/04/22 15:15:45 by rpapagna          #+#    #+#             */
+/*   Updated: 2019/04/22 18:42:29 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-char	*ft_itoa(int n)
+const static char	g_basetable[] = "0123456789ABCDEF";
+
+char	*ft_itoa_base(int32_t n, int base)
 {
-	int		tmp;
+	int64_t	tmp;
 	int		len;
 	char	*str;
 
-	if (n == -2147483648)
-		return ("-2147483648");
+	IF_RETURN((n == -2147483648), "-2147483648");
+	IF_THEN(n < 0, n *= -1);
 	tmp = n;
-	len = 0;
-	if (n < 0)
-	{
-		tmp *= -1;
-		len = 1;
-	}
-	len += ft_intlen(n);
+	len = 1;
+	while (tmp /= base)
+		len++;
+	tmp = n;
+	IF_THEN(base == 10, len += 1);
 	if (!(str = ft_strnew(len)))
 		return (NULL);
 	while (len--)
 	{
-		str[len] = tmp % 10 + '0';
-		tmp = tmp / 10;
+		str[len] = g_basetable[(tmp % base)];
+		tmp /= base;
 	}
-	if (n < 0)
+	if (n < 0 && base == 10)
 		str[0] = '-';
 	return (str);
 }
