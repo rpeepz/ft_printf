@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 20:46:20 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/16 21:28:11 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/24 02:34:26 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void		set_flags(t_flag *flags, char c)
 	else if (c == '0')
 		flags->fzero = 1;
 }
+
 /*
 **	FLAGS
 **	' '		(d, i, f, F)
