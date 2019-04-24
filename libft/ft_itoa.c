@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 00:13:27 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/22 15:16:04 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/22 22:23:02 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_itoa(int n)
 	char	*str;
 
 	if (n == -2147483648)
-		return ("-2147483648");
+		return (ft_strdup("-2147483648"));
 	tmp = n;
 	len = 0;
 	if (n < 0)
