@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 20:18:14 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/22 13:42:26 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/24 00:49:54 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ t_mods			get_mods(char **str, va_list ap)
 
 	modifiers.flags = get_flags(str);
 	modifiers.width = get_width(str, ap);
-	modifiers.precision = get_precision(str, ap);
+	modifiers.prcsn = get_precision(str, ap);
 	modifiers.length = get_length(str);
 	return (modifiers);
 }

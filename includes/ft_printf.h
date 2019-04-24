@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 22:47:33 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/17 04:42:05 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/24 02:33:34 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct	s_mods
 {
 	t_flag		flags;
 	int			width;
-	int			precision;
+	int			prcsn;
 	int			length;
 }				t_mods;
 
@@ -56,6 +56,7 @@ void			errors(int err_num, char **str);
 t_mods			get_mods(char **str, va_list ap);
 int				is_flag(char x);
 int				get_type_specifier(char x);
+
 /*
 **CONVERSION FUNCTIONS
 */
