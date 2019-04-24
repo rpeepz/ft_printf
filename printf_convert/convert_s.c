@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 20:59:06 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/22 15:07:06 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/24 00:49:54 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ int			convert_s(t_mods modifiers, va_list ap)
 	s = va_arg(ap, char *);
 	IF_THEN(!s, s = "(null)");
 	nbyte = 0;
-	if (modifiers.precision >= 0 && modifiers.precision < (int)ft_strlen(s))
-		s2 = ft_strndup(s, modifiers.precision);
+	if (modifiers.prcsn >= 0 && modifiers.prcsn < (int)ft_strlen(s))
+		s2 = ft_strndup(s, modifiers.prcsn);
 	else
 		s2 = ft_strdup(s);
 	if (modifiers.flags.minus == 1)
