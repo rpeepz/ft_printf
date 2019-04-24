@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 22:34:38 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/22 18:54:29 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/24 02:32:39 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,46 @@ int		main(void)
 //	printf("flags with width\n");
 //	printf("single flag width 4\n");
 //	printf("space	d:% 4d\n", n1);
+//	printf("space 6w d:% 6d.\n", 555);
+//	printf("space 4w d:% 4d.\n", 555);
+//	printf("space 2w d:% 2d.\n\n", 555);
+//	printf("nspce 6w d:%6d.\n", 676);
+//	printf("nspce 4w d:%4d.\n", 676);
+//	printf("nspce 2w d:%2d.\n\n", 676);
+//	printf("nspce 6w d:%6d.\n", 76);
+//	printf("nspce 4w d:%4d.\n", 76);
+//	printf("nspce 2w d:%2d.\n\n", 76);
+//	printf("space 6w d:%+ 6d.\n", 555);
+//	printf("space 4w d:%+ 4d.\n", 555);
+//	printf("space 2w d:%+ 2d.\n\n", 555);
+//	printf("nspce 6w d:%+6d.\n", 676);
+//	printf("nspce 4w d:%+4d.\n", 676);
+//	printf("nspce 2w d:%+2d.\n\n", 676);
+//	printf("nspce 6w d:%+6d.\n", 76);
+//	printf("nspce 4w d:%+4d.\n", 76);
+//	printf("nspce 2w d:%+2d.\n\n", 76);
+//	printf("np  6w d:%6.d.\n", 555);
+//	printf("4p  8w d:%8.4d.\n", 555);
+//	printf("2p  2w d:%2.2d.\n\n", 555);
+//	printf("minus    2w d:%-2d.\n", 555);
+//	printf("minus +  2w d:%-+2d.\n", 555);
+//	printf("minus sp 2w d:%- 2d.\n", 555);
+//	printf("minus +5p  2w d:%-+2.5d.\n", 555);
+//	printf("minus sp5p 2w d:%- 2.5d.\n", 555);
+//	printf("neg minus    2w d:%-2d.\n", -555);
+//	printf("neg minus +  2w d:%-+2d.\n", -555);
+//	printf("neg minus sp 2w d:%- 2d.\n", -555);
+//	printf("neg minus +5p  2w d:%-+2.5d.\n", -555);
+//	printf("neg minus sp5p 2w d:%- 2.5d.\n", -555);
+//	printf("minus 5w d:%-5d.\n\n", 555);
+//	printf("minus 2p d:%-.2d.\n", 666);
+//	printf("minus 5p d:%-.5d.\n\n", 666);
+//	printf("6p  nw d:%.6d.\n", 676);
+//	printf("4p  8w d:%8.4d.\n", 676);
+//	printf("2p  2w d:%2.2d.\n\n", 676);
+//	printf("6p  nw d:%.6d.\n", 76);
+//	printf("4p  8w d:%8.4d.\n", 76);
+//	printf("2p  2w d:%2.2d.\n\n", 76);
 //	printf("space	d:% 4d\n", n2);
 //	printf("plus	d:%+4d\n", n1);
 //	printf("plus	d:%+4d\n", n2);
@@ -170,7 +210,23 @@ int		main(void)
 //	printf("10.8 :%+10.8d\n", n2);
 //	printf("10.4 :%+10.4d\n", n1);
 //	printf("10.4 :%+10.4d\n\n", n2);
-//
+//	printf("   SP   :% d.\n", 60);
+//	printf("   SP4w :% 4d.\n", 61);
+//	printf("   .5   :%.5d.\n", 70);
+//	printf("   4w   :%4d.\n", 80);
+//	printf(" SP6w  +:%+ 6d.\n", 90);
+//	printf("negSP   :% d.\n", -64);
+//	printf("neg.5   :%.5d.\n", -74);
+//	printf("neg4w   :%4d.\n", -84);
+//	printf("neg6w  +:%+6d.\n\n", -94);
+//	printf("   SP   :% d.\n", 1160);
+//	printf("   .5   :%.5d.\n", 1170);
+//	printf("   4w   :%4d.\n", 1180);
+//	printf(" SP6w.7+:%+ 6.7d.\n", 1190);
+//	printf("negSP   :% d.\n", -9164);
+//	printf("neg.5   :%.5d.\n", -9174);
+//	printf("neg4w   :%4d.\n", -9184);
+//	printf("neg6w.7+:%+6.7d.\n", -9194);
 //	printf("10w plus space:% +10d\n", n1);
 //	printf("10w plus space:% +10d\n", n2);
 //	printf("10w space     :% 10d\n", n1);
@@ -329,20 +385,18 @@ int		main(void)
 //	printf("%-010s.\n%0.5s.\n%-010.5s.\n\n", "aXcdef", "aXcdef", "aXcdef");
 //	printf("%-05s.\n%0.10s.\n%-05.10s.\n\n", "aXYcdef", "aXYcdef", "aXYcdef");
 
-	printf(".%-10.5s.\n", "123456");
-	printf(".%-6.5s.\n\n\n", "123456");
+//	printf(".%-10.5s.\n", "123456");
+//	printf(".%-6.5s.\n\n\n", "123456");
 
-	ft_printf("these are tests for my own printf vs libc printf\n\n\n");
+	ft_printf("these are tests for my own printf vs libc printf\n\n");
 
 	char	c;
 	char	*s;
 	int		i;
-	int		n1;
-	int		n2;
 
 	c = 'X';
 	s = "%%c test :%c.\n";
-	i = ft_printf("regular string test\n");
+//	i = ft_printf("regular string test\n");
 	n1 = 400;
 	n2 = -400;
 //	ft_printf("%%c test :%c.\n", c);
@@ -399,6 +453,24 @@ int		main(void)
 //	ft_printf("10w.5zero  :%010.5d.\n", n2);
 //	ft_printf("10w.5zeroSP:%0 10.5d.\n", n1);
 //	ft_printf("10w.5zeroSP:%0 10.5d.\n", n2);
-	ft_printf("%10s is a string", NULL);
+//	ft_printf("%10s is a string\n\n", NULL);
+//	ft_printf("% 10.5d\n", 4242);
+//	ft_printf("%+10.5d\n", 4242);
+//	ft_printf("%03.2d\n", -1);
+//	ft_printf("%.d. %.0d\n", 0, 0);
+//	printf("%d. %d\n", 0, 0);
+//	ft_printf("%5.d %5.0d\n", 0, 0);
+//	printf("%5.d %5.0d\n", 0, 0);
+//	ft_printf("%+d", 0);
+//	i = ft_printf("%05d", 42);
+//	ft_printf("%0+5d\n", 42);
+//	i = ft_printf("%05d", -42);
+//	ft_printf("%0+5d\n", -42);
+
+//	ft_printf("%10.5d\n", -216);
+//	printf("%10.5d\n", -216);
+//	printf(".\n\nbytes: %d\n", i);
+
+
 	return (0);
 }
