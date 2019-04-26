@@ -6,7 +6,7 @@
 #    By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/13 21:22:38 by rpapagna          #+#    #+#              #
-#    Updated: 2019/04/22 19:07:53 by rpapagna         ###   ########.fr        #
+#    Updated: 2019/04/25 22:32:34 by rpapagna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,9 @@ SRCS 	= do_things.c \
 
 CONV	= convert_percent.c \
 		convert_c.c \
-		convert_d.c \
+		convert_i.c \
 		convert_s.c
+#		convert_d.c \
 #		convert_o.c \
 #		convert_u.c \
 #		convert_x.c \
