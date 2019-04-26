@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 22:34:38 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/24 02:32:39 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/26 00:24:46 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -470,7 +470,8 @@ int		main(void)
 //	ft_printf("%10.5d\n", -216);
 //	printf("%10.5d\n", -216);
 //	printf(".\n\nbytes: %d\n", i);
-
-
+//	i = ft_printf("%10.5i", -216);
+	i = ft_printf("%0+5d", 42);
+	printf("\n%d\n", i);
 	return (0);
 }
