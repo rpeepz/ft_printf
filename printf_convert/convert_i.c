@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 20:58:07 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/26 00:19:23 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/26 14:32:51 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,32 +47,29 @@ static int		pad_width(t_mods mod, int len, int nbyte, int neg)
 
 static	int		right_justify(t_mods mod, char *num, int nbyte, int neg)
 {
-	int		len;
-
-	len = (int)ft_strlen(num);
 	if (neg == 1)
 	{
-		if (mod.width > len && mod.flags.fzero && mod.prcsn == -1)
+		if (mod.flags.fzero && mod.prcsn < 0 && mod.width > (int)ft_strlen(num))
 			nbyte += (int)write(1, "-", 1);
-		nbyte = pad_width(mod, len, nbyte, neg);
-		IF_THEN(!mod.flags.fzero || mod.prcsn > 0 || nbyte == 0,
-			nbyte += (int)write(1, "-", 1));
+		nbyte = pad_width(mod, (int)ft_strlen(num), nbyte, neg);
+		if (!mod.flags.fzero || mod.prcsn > 0 || !nbyte)
+			nbyte += (int)write(1, "-", 1);
 	}
 	else if (neg == 0)
 	{
-		if (mod.width > len && mod.flags.fzero &&
-				mod.prcsn == -1 && mod.flags.fplus)
+		if (mod.flags.fplus && mod.flags.fzero && mod.prcsn < 0 &&
+			mod.width > (int)ft_strlen(num) && (mod.flags.space = -1))
 			nbyte += (int)write(1, "+", 1);
-		nbyte = pad_width(mod, len, nbyte, mod.flags.fplus);
-		if (!mod.flags.fplus && mod.flags.space && nbyte == 0)
+		nbyte = pad_width(mod, (int)ft_strlen(num), nbyte, mod.flags.fplus);
+		if ((mod.flags.fplus && mod.flags.space != -1))
+			nbyte += (int)write(1, "+", 1);
+		if (!mod.flags.fplus && mod.flags.space && !nbyte)
 			nbyte += (int)write(1, " ", 1);
-		if ((mod.flags.fplus && !mod.flags.fzero) || (mod.flags.fplus && mod.flags.fzero))
-			nbyte += (int)write(1, "+", 1);
 	}
-	if (mod.prcsn > len)
-		while ((mod.prcsn--) - len > 0)
+	if (mod.prcsn > (int)ft_strlen(num))
+		while ((mod.prcsn--) - (int)ft_strlen(num) > 0)
 			nbyte += (int)write(1, "0", 1);
-	IF_RETURN(1, nbyte += (int)write(1, num, len));
+	return (nbyte += (int)write(1, num, ft_strlen(num)));
 }
 
 static	int		left_justify(t_mods mod, char *num, int nbyte, int neg)
