@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 22:47:33 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/24 02:33:34 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/26 00:20:57 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct	s_dispatch_specifier
 void			set_flags(t_flag *flags, char c);
 void			print_one(char **str);
 void			errors(int err_num, char **str);
+char			*num_string(long long num);
 t_mods			get_mods(char **str, va_list ap);
 int				is_flag(char x);
 int				get_type_specifier(char x);
@@ -62,7 +63,7 @@ int				get_type_specifier(char x);
 */
 
 int				convert_percent(t_mods modifiers);
-int				convert_d(t_mods modifiers, va_list ap);
+int				convert_i(t_mods modifiers, va_list ap);
 int				convert_c(t_mods modifiers, va_list ap);
 int				convert_s(t_mods modifiers, va_list ap);
 int				convert_p(t_mods modifiers, va_list ap);

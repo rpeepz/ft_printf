@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 20:46:20 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/24 02:34:26 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/25 23:56:05 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,34 @@ void		set_flags(t_flag *flags, char c)
 		flags->minus = 1;
 	else if (c == '0')
 		flags->fzero = 1;
+}
+
+char		*num_string(long long num)
+{
+	long long	tmp;
+	int			len;
+	char		*str;
+
+	len = 0;
+	tmp = num;
+	IF_RETURN((tmp + 1) * -1 == 9223372036854775807,
+		str = ft_strdup("9223372036854775808"));
+	IF_RETURN(tmp == 0, str = ft_strdup("0"));
+	while (tmp > 0)
+	{
+		len++;
+		tmp /= 10;
+	}
+	if (!(str = ft_strnew(len)))
+		return (NULL);
+	len--;
+	while (num > 0)
+	{
+		str[len] = (num % 10) + '0';
+		num /= 10;
+		len--;
+	}
+	return (str);
 }
 
 /*
