@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert_d.c                                        :+:      :+:    :+:   */
+/*   .convert_d.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 23:11:29 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/25 22:29:36 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/26 12:34:13 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
 /*
-**	d, i	The int (or variant) argument is converted to signed decimal.
-**			The precision, if any, gives the minimum number of digits
-**			that must appear; if the converted value requires fewer digits,
-**			it is padded on the left with zeros.
+** OBSOLETE VERSION
 */
 
 static	int		left_justify(t_mods mod, char *num, int len, int nbyte)
