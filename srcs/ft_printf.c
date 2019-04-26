@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 22:34:52 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/22 13:55:02 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/26 00:12:35 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ int				parse_string(char **str, va_list ap)
 		return (0);
 	}
 	IF_RETURN(i == 1 && (*str)++, convert_percent(modifier));
-	IF_RETURN(i == 2 && (*str)++, convert_d(modifier, ap));
+	IF_RETURN(i == 2 && (*str)++, convert_i(modifier, ap));
+//	IF_RETURN(i == 2 && (*str)++, convert_d(modifier, ap));
 	IF_RETURN(i == 3 && (*str)++, convert_c(modifier, ap));
 	IF_RETURN(i == 4 && (*str)++, convert_s(modifier, ap));
 //	IF_RETURN(i == 5 && (*str)++, convert_p(modifier, ap));
