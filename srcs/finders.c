@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 21:07:17 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/22 13:48:51 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/26 16:39:14 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,15 @@
 int		is_flag(char x)
 {
 	return (x == ' ' || x == '#' || x == '+' || x == '-' || x == '0');
+}
+
+int		get_undef_length(char x)
+{
+	if (x == 'z' || x == 'j')
+		return (1);
+	if (x == 'h' || x == 'l')
+		return (2);
+	return (0);
 }
 
 int		get_type_specifier(char x)

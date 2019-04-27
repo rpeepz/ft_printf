@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 20:18:14 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/26 00:02:56 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/26 16:34:49 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ static int		get_length(char **str)
 		length = (int)'l';
 	else if (**str == 'l' && *(*str + 1) == 'l')
 		length = (int)('l' + 'l');
-	else if (**str == 'z' || **str == 'j')
+	else if (get_undef_length(**str))
 		length = (int)('z');
 	if (length > 0)
 	{
@@ -100,6 +100,8 @@ static int		get_length(char **str)
 		else
 			(*str) += 1;
 	}
+	while (length && get_undef_length(**str))
+		(*str) += 1;
 	return (length);
 }
 
