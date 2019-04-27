@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 20:58:07 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/26 14:32:51 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/26 20:25:19 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,20 @@ static int		pad_width(t_mods mod, int len, int nbyte, int neg)
 		{
 			IF_THEN(mod.flags.fzero && mod.prcsn == -1, pad_char = "0");
 			if (nbyte == 0)
+			{
+				if (mod.flags.space && mod.flags.fzero)
+					nbyte += write(1, " ", 1);
 				while (mod.width - len - neg > nbyte)
 					nbyte += (int)write(1, pad_char, 1);
+			}
 			else
 				while (mod.width - len > nbyte)
 					nbyte += (int)write(1, pad_char, 1);
 		}
 	}
 	else
-	{
 		while (mod.width - mod.prcsn - neg > nbyte)
 			nbyte += (int)write(1, pad_char, 1);
-	}
 	return (nbyte);
 }
 
