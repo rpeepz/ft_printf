@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 22:47:33 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/29 21:43:36 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/30 05:43:44 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int				convert_c(t_mods modifiers, va_list ap);
 int				convert_s(t_mods modifiers, va_list ap);
 int				convert_p(t_mods modifiers, va_list ap);
 int				convert_o(t_mods modifiers, va_list ap);
-int				convert_u(t_mods modifiers, va_list ap);
+int				convert_u(t_mods modifiers, va_list ap, int i);
 int				convert_x(t_mods modifiers, va_list ap, int i);
 int				convert_f(t_mods modifiers, va_list ap, int i);
 int				convert_k(t_mods modifiers, va_list ap, int i);
