@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 22:47:33 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/26 15:17:01 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/29 21:43:36 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "libft.h"
 # include <stdarg.h>
 
+# define LEN(X) ft_strlen(X)
 # define IF_THEN(X, Y) if(X) {(Y);}
 # define IF_RETURN(X, Y) if(X) {return (Y);}
 
@@ -52,8 +53,8 @@ typedef struct	s_dispatch_specifier
 
 void			set_flags(t_flag *flags, char c);
 void			print_one(char **str);
-void			errors(int err_num, char **str);
-char			*num_string(long long num);
+char			*num_string_base(long long num, int base);
+char			*num_string_u_base(unsigned long long num, int base);
 t_mods			get_mods(char **str, va_list ap);
 int				is_flag(char x);
 int				get_type_specifier(char x);
@@ -70,9 +71,9 @@ int				convert_s(t_mods modifiers, va_list ap);
 int				convert_p(t_mods modifiers, va_list ap);
 int				convert_o(t_mods modifiers, va_list ap);
 int				convert_u(t_mods modifiers, va_list ap);
-int				convert_x(t_mods modifiers, va_list ap);
-int				convert_f(t_mods modifiers, va_list ap);
-int				convert_k(t_mods modifiers, va_list ap);
+int				convert_x(t_mods modifiers, va_list ap, int i);
+int				convert_f(t_mods modifiers, va_list ap, int i);
+int				convert_k(t_mods modifiers, va_list ap, int i);
 int				convert_help(t_mods modifiers, va_list ap);
 /*
 **	char		flag_bits;
