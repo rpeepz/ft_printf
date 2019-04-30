@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 20:46:20 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/30 02:16:22 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/30 02:33:03 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char		*num_string_u_base(unsigned long long num, int base)
 	len = 0;
 	tmp = num;
 	IF_RETURN(tmp == 0, str = ft_strdup("0"));
-	while (num > 0)
+	while (tmp > 0)
 	{
 		len++;
 		tmp /= base;
