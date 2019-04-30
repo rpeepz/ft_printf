@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 22:34:38 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/26 16:59:07 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/26 21:50:53 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,29 @@ int		main(void)
 	s2 = "hello";
 	x = 1.1;
 	y = 3.14;
-
+	ft_printf("these are tests for my own printf vs libc printf\n\n");
+	printf("0          : \"%x\"\n", 0);
+	printf("0          : \"%X\"\n", 0);
+	printf("1          : \"%x\"\n", 1);
+	printf("2          : \"%x\"\n", 2);
+	printf("9          : \"%x\"\n", 9);
+	printf("8          : \"%x\"\n", 8);
+	printf("7          : \"%x\"\n", 7);
+	printf("-3         : \"%x\"\n", -3);
+	printf("-4         : \"%x\"\n", -4);
+	printf("15         : \"%x\"\n", 15);
+	printf("16         : \"%x\"\n", 16);
+	printf("-17        : \"%x\"\n", -17);
+	printf("-18        : \"%x\"\n", -18);
+	printf("421        : \"%x\"\n", 421);
+	printf("532        : \"%x\"\n", 532);
+	printf("-674       : \"%x\"\n", -674);
+	printf("-890       : \"%x\"\n", -890);
+	printf("777        : \"%x\"\n", 777);
+	printf("888        : \"%x\"\n", 888);
+	printf("999        : \"%llx\"\n", 9223372036854775808);
+	return (0);
+}
 /*
 **	printf("% -d.%-d.%-d\n% -c.%-c\n\n", a, b , c, d, e);
 **	printf("%+ c.%-0 c.%      c", 49, e, 'g');
@@ -407,20 +429,19 @@ int		main(void)
 **	printf(".%-10.5s.\n", "123456");
 **	printf(".%-6.5s.\n\n\n", "123456");
 **
-**	ft_printf("these are tests for my own printf vs libc printf\n\n");
-*/
-
-	char	c;
-	char	*s;
-	int		i;
-
-	c = 'X';
-	s = "%%c test :%c.\n";
-	i = ft_printf("regular string test\n");
-	n1 = 400;
-	n2 = -400;
-
-/*
+**	char	c;
+**	int		i;
+**	char	*s;
+**	c = 'X';
+**	s = "%%c test :%c.\n";
+**	i = ft_printf("regular string test\n");
+**
+**
+**
+**	n1 = 400;
+**	n2 = -400;
+**
+**
 **	ft_printf("%%c test :%c.\n", c);
 **	printf("%%c test :%c. <<\n\n", c);
 **	ft_printf("%%%% test :%%.\n");
@@ -494,25 +515,22 @@ int		main(void)
 **	printf(".\n\nbytes: %d\n", i);
 **	i = ft_printf("%10.5i", -216);
 **	i = ft_printf("%0+5d", 42);
+**
+**	ft_printf("\"");
+**	i = ft_printf("% 05d", 43);
+**	ft_printf("\"");
+**	ft_printf(" <- ft_printf.bytes -> %d\n", i);
+**	printf("\"");
+**	i = printf("% 05d", 43);
+**	printf("\"");
+**	printf(" <-    printf.bytes -> %d\n\n", i);
+**
+**	ft_printf("\"");
+**	i = ft_printf("% 03d", 0);
+**	ft_printf("\"");
+**	ft_printf("   <- ft_printf.bytes -> %d\n", i);
+**	printf("\"");
+**	i = printf("% 03d", 0);
+**	printf("\"");
+**	printf("   <-    printf.bytes -> %d\n\n", i);
 */
-
-	ft_printf("\"");
-	i = ft_printf("% 05d", 43);
-	ft_printf("\"");
-	ft_printf(" <- ft_printf.bytes -> %d\n", i);
-	printf("\"");
-	i = printf("% 05d", 43);
-	printf("\"");
-	printf(" <-    printf.bytes -> %d\n\n", i);
-
-	ft_printf("\"");
-	i = ft_printf("% 03d", 0);
-	ft_printf("\"");
-	ft_printf("   <- ft_printf.bytes -> %d\n", i);
-	printf("\"");
-	i = printf("% 03d", 0);
-	printf("\"");
-	printf("   <-    printf.bytes -> %d\n\n", i);
-
-	return (0);
-}
