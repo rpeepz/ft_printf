@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 22:34:38 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/26 21:50:53 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/30 06:00:37 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,29 +49,65 @@ int		main(void)
 	x = 1.1;
 	y = 3.14;
 	ft_printf("these are tests for my own printf vs libc printf\n\n");
-	printf("0          : \"%x\"\n", 0);
-	printf("0          : \"%X\"\n", 0);
-	printf("1          : \"%x\"\n", 1);
-	printf("2          : \"%x\"\n", 2);
-	printf("9          : \"%x\"\n", 9);
-	printf("8          : \"%x\"\n", 8);
-	printf("7          : \"%x\"\n", 7);
-	printf("-3         : \"%x\"\n", -3);
-	printf("-4         : \"%x\"\n", -4);
-	printf("15         : \"%x\"\n", 15);
-	printf("16         : \"%x\"\n", 16);
-	printf("-17        : \"%x\"\n", -17);
-	printf("-18        : \"%x\"\n", -18);
-	printf("421        : \"%x\"\n", 421);
-	printf("532        : \"%x\"\n", 532);
-	printf("-674       : \"%x\"\n", -674);
-	printf("-890       : \"%x\"\n", -890);
-	printf("777        : \"%x\"\n", 777);
-	printf("888        : \"%x\"\n", 888);
-	printf("999        : \"%llx\"\n", 9223372036854775808);
+
 	return (0);
 }
 /*
+**	printf("#8.5       : \"%#8.5x\"\n", 34);
+**	ft_printf("ft#8.5     : \"%#8.5x\"\n\n", 34);
+**	printf("#08.5      : \"%#08.5x\"\n", 34);
+**	ft_printf("ft#08.5    : \"%#08.5x\"\n\n", 34);
+**	printf("#08.3      : \"%#08.3x\"\n", 8375);
+**	ft_printf("#08.3      : \"%#08.3x\"\n\n", 8375);
+**	printf("532        : \"%x\"\n", 532);
+**	ft_printf("ft5        : \"%x\"\n", 532);
+**	printf("-674       : \"%x\"\n", -674);
+**	ft_printf("ft-4       : \"%x\"\n", -674);
+**	printf("-890       : \"%x\"\n", -890);
+**	ft_printf("ft-0       : \"%x\"\n", -890);
+**	printf("777        : \"%x\"\n", 777);
+**	ft_printf("ft7        : \"%x\"\n", 777);
+**	printf("888        : \"%x\"\n", 888);
+**	ft_printf("ft8        : \"%x\"\n", 888);
+**	printf("999        : \"%.0llx\"\n", 9223372036854775808);
+**	ft_printf("ft9        : \"%.0llx\"\n", 9223372036854775808);
+**	printf("#3 0       : \"%#3x\"\n", 0);
+**	ft_printf("ft#3 0     : \"%#3x\"\n\n", 0);
+**	printf("#03 0     : \"%#03x\"\n", 0);
+**	ft_printf("ft#3 0    : \"%#03x\"\n\n", 0);
+**	ft_printf("%lu\n", (unsigned long)32);
+**	printf("%lu\n\n", (unsigned long)32);
+**	printf(".0        : \"%.x\"\n", 0);
+**	ft_printf("ft.0      : \"%.x\"\n\n", 0);
+**	printf("5.        : \"%5.x\"\n", 0);
+**	ft_printf("ft5.      : \"%5.x\"\n\n", 0);
+**	printf("-4         : \"%#x\"\n", -4);
+**	ft_printf("ft-        : \"%#x\"\n\n", -4);
+**	printf("15         : \"%#x\"\n", 15);
+**	ft_printf("ft1        : \"%#x\"\n\n", 15);
+**	printf("0          : \"%.0x\"\n", 0);
+**	ft_printf("ft0        : \"%.0x\"\n", 0);
+**	printf("0          : \"%.X\"\n", 0);
+**	ft_printf("ft0        : \"%.X\"\n", 0);
+**
+**	printf("2    0      : \"%018x\"\n", 2);
+**	ft_printf("ft2  0      : \"%018x\"\n", 2);
+**	printf("9    0      : \"%010x\"\n", 9);
+**	ft_printf("ft9  0      : \"%010x\"\n", 9);
+**	printf("8    0      : \"%0.16x\"\n", 8);
+**	ft_printf("ft8  0      : \"%0.16x\"\n", 8);
+**	printf("7    0      : \"%.16x\"\n", 7);
+**	ft_printf("ft7 0       : \"%.16x\"\n", 7);
+**	printf("2          : \"%x\"\n", 2);
+**	ft_printf("ft2        : \"%x\"\n", 2);
+**	printf("9          : \"%x\"\n", 9);
+**	ft_printf("ft9        : \"%x\"\n", 9);
+**	printf("8          : \"%x\"\n", 8);
+**	ft_printf("ft8        : \"%x\"\n", 8);
+**	printf("7          : \"%x\"\n", 7);
+**	ft_printf("ft7        : \"%x\"\n", 7);
+**	printf("1 sp       : \"% x\"\n", 1);
+**	ft_printf("ft1 sp     : \"% x\"\n", 1);
 **	printf("% -d.%-d.%-d\n% -c.%-c\n\n", a, b , c, d, e);
 **	printf("%+ c.%-0 c.%      c", 49, e, 'g');
 **	printf("%-+0.c.%-+0c.%-+ 03c.", d, e, f);
