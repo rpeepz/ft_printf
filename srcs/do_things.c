@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 20:46:20 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/29 21:42:44 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/30 02:16:22 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,10 @@ char		*num_string_base(long long num, int base)
 **	FLAGS
 **	' '		(d, i, f, F)
 **SPACE gives just one blank before output. can be overwritten by plus.
-**(c, %, s)no effect
+**(c, %, s, x)no effect
 **	'+'		(d, i, f, F)
 **PLUS forces plus or minus sign before output of signed conversions.
-**(c, %, s)no effect
+**(c, %, s, x)no effect
 **	'0'		(all)
 **ZERO turns padding from blanks to zeros. if a precision is present
 **with the numeric conversion (d, i, o, u, x, X) the zero is ignored.
