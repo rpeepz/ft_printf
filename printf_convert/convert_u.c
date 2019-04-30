@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 21:04:01 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/30 02:09:48 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/30 02:19:16 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ static uint64_t	convert_length(int length, va_list ap)
 	return (u);
 }
 
-int				convert_i(t_mods modifiers, va_list ap)
+int				convert_u(t_mods modifiers, va_list ap)
 {
 	uint64_t	num;
 	int			nbyte;
