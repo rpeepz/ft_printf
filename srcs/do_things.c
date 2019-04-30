@@ -6,22 +6,18 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 20:46:20 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/25 23:56:05 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/29 21:42:44 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
+const static char	g_base[] = "0123456789ABCDEF";
+
 void		print_one(char **str)
 {
 	ft_putchar(**str);
 	(*str)++;
-}
-
-void		errors(int err_num, char **str)
-{
-	if (err_num == 1)
-		ft_printf("\"%c <-invalid specifier\"", *(*str - 1));
 }
 
 void		set_flags(t_flag *flags, char c)
@@ -38,7 +34,33 @@ void		set_flags(t_flag *flags, char c)
 		flags->fzero = 1;
 }
 
-char		*num_string(long long num)
+char		*num_string_u_base(unsigned long long num, int base)
+{
+	unsigned long long	tmp;
+	int					len;
+	char				*str;
+
+	len = 0;
+	tmp = num;
+	IF_RETURN(tmp == 0, str = ft_strdup("0"));
+	while (num > 0)
+	{
+		len++;
+		tmp /= base;
+	}
+	if (!(str = ft_strnew(len)))
+		return (NULL);
+	len--;
+	while (num > 0)
+	{
+		str[len] = g_base[(num % base)];
+		num /= base;
+		len--;
+	}
+	return (str);
+}
+
+char		*num_string_base(long long num, int base)
 {
 	long long	tmp;
 	int			len;
@@ -52,15 +74,15 @@ char		*num_string(long long num)
 	while (tmp > 0)
 	{
 		len++;
-		tmp /= 10;
+		tmp /= base;
 	}
 	if (!(str = ft_strnew(len)))
 		return (NULL);
 	len--;
 	while (num > 0)
 	{
-		str[len] = (num % 10) + '0';
-		num /= 10;
+		str[len] = g_base[(num % base)];
+		num /= base;
 		len--;
 	}
 	return (str);
