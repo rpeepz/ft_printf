@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 20:58:07 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/29 19:55:19 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/29 21:04:05 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,11 @@ int				convert_i(t_mods modifiers, va_list ap)
 	num = convert_length(modifiers.length, ap);
 	neg = (num < 0) ? 1 : 0;
 	IF_THEN(neg == 1, num *= -1);
-	str = num_string(num);
+	if (modifiers.length == 'l' || modifiers.length / 2 == 'l' ||
+		modifiers.length == 'z')
+		str = num_string_base(num, 10);
+	else
+		str = ft_itoa(num);
 	IF_THEN(str[0] == '0' && modifiers.prcsn == 0, str[0] = '\0');
 	if (modifiers.flags.minus == 1)
 		nbyte += left_justify(modifiers, str, nbyte, neg);
