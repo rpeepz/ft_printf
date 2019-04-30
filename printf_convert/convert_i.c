@@ -6,11 +6,12 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 20:58:07 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/26 20:25:19 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/29 19:50:39 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#define LEN(X) ft_strlen(X)
 
 /*
 **	d, i	The int (or variant) argument is converted to signed decimal.
@@ -49,29 +50,31 @@ static int		pad_width(t_mods mod, int len, int nbyte, int neg)
 
 static	int		right_justify(t_mods mod, char *num, int nbyte, int neg)
 {
-	if (neg == 1)
+	int		len;
+
+	if ((len = LEN(num)) && neg == 1)
 	{
-		if (mod.flags.fzero && mod.prcsn < 0 && mod.width > (int)ft_strlen(num))
+		if (mod.flags.fzero && mod.prcsn < 0 && mod.width > len)
 			nbyte += (int)write(1, "-", 1);
-		nbyte = pad_width(mod, (int)ft_strlen(num), nbyte, neg);
+		nbyte = pad_width(mod, len, nbyte, neg);
 		if (!mod.flags.fzero || mod.prcsn > 0 || !nbyte)
 			nbyte += (int)write(1, "-", 1);
 	}
 	else if (neg == 0)
 	{
 		if (mod.flags.fplus && mod.flags.fzero && mod.prcsn < 0 &&
-			mod.width > (int)ft_strlen(num) && (mod.flags.space = -1))
+			mod.width > len && (mod.flags.space = -1))
 			nbyte += (int)write(1, "+", 1);
-		nbyte = pad_width(mod, (int)ft_strlen(num), nbyte, mod.flags.fplus);
+		nbyte = pad_width(mod, len, nbyte, mod.flags.fplus);
 		if ((mod.flags.fplus && mod.flags.space != -1))
 			nbyte += (int)write(1, "+", 1);
 		if (!mod.flags.fplus && mod.flags.space && !nbyte)
 			nbyte += (int)write(1, " ", 1);
 	}
-	if (mod.prcsn > (int)ft_strlen(num))
-		while ((mod.prcsn--) - (int)ft_strlen(num) > 0)
+	if (mod.prcsn > len)
+		while ((mod.prcsn--) - len > 0)
 			nbyte += (int)write(1, "0", 1);
-	return (nbyte += (int)write(1, num, ft_strlen(num)));
+	return (nbyte += (int)write(1, num, len));
 }
 
 static	int		left_justify(t_mods mod, char *num, int nbyte, int neg)
