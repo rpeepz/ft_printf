@@ -6,12 +6,11 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 20:58:07 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/29 19:50:39 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/29 19:55:19 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#define LEN(X) ft_strlen(X)
 
 /*
 **	d, i	The int (or variant) argument is converted to signed decimal.
