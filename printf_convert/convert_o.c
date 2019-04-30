@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 20:59:54 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/30 05:16:46 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/30 05:26:55 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,25 +106,31 @@ static uint64_t	convert_length(int length, va_list ap)
 	return (o);
 }
 
-int			convert_o(t_mods modifiers, va_list ap)
+int				convert_o(t_mods modifiers, va_list ap)
 {
 	uint64_t	num;
 	int			nbyte;
+	char		*tmp;
 	char		*str;
 
 	nbyte = 0;
 	num = convert_length(modifiers.length, ap);
 	if (modifiers.length == 'l' || modifiers.length / 2 == 'l' ||
 		modifiers.length == 'z')
-		str = num_string_u_base(num, 8);
+		tmp = num_string_u_base(num, 8);
 	else
-		str = ft_uitoa_base(num, 8);
-	IF_THEN(str[0] == '0' && modifiers.prcsn == 0 && !modifiers.flags.pound, str[0] = '\0');
+		tmp = ft_uitoa_base(num, 8);
+	if (modifiers.flags.pound && tmp[0] != '0')
+		str = ft_strjoin("0", tmp);
+	else
+		str = ft_strdup(tmp);
+	free(tmp);
+	IF_THEN(str[0] == '0' && modifiers.prcsn == 0 && !modifiers.flags.pound,
+			str[0] = '\0');
 	if (modifiers.flags.minus == 1)
 		nbyte += left_justify(modifiers, str, nbyte);
 	else
 		nbyte += right_justify(modifiers, str, nbyte);
-	if (str)
-		free(str);
+	free(str);
 	return (nbyte);
 }
