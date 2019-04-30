@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 20:59:06 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/24 00:49:54 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/29 20:02:03 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,33 +23,33 @@
 **		array, the array must contain a terminating NUL character.
 */
 
-static int	left_justify(t_mods mod, char *s)
+static int	left_justify(t_mods mod, char *s, int len)
 {
 	int		nbyte;
 
 	nbyte = 0;
-	nbyte += (int)write(1, s, ft_strlen(s));
+	nbyte += (int)write(1, s, len);
 	while (nbyte < mod.width)
 		nbyte += (int)write(1, " ", 1);
 	return (nbyte);
 }
 
-static int	right_justify(t_mods mod, char *s)
+static int	right_justify(t_mods mod, char *s, int len)
 {
 	int		nbyte;
 
 	nbyte = 0;
 	if (mod.flags.fzero == 1)
 	{
-		while (mod.width-- > (int)ft_strlen(s))
+		while (mod.width-- > len)
 			nbyte += (int)write(1, "0", 1);
 	}
 	else
 	{
-		while (mod.width-- > (int)ft_strlen(s))
+		while (mod.width-- > len)
 			nbyte += (int)write(1, " ", 1);
 	}
-	return (nbyte += (int)write(1, s, ft_strlen(s)));
+	return (nbyte += (int)write(1, s, len));
 }
 
 int			convert_s(t_mods modifiers, va_list ap)
@@ -57,6 +57,7 @@ int			convert_s(t_mods modifiers, va_list ap)
 	char	*s;
 	char	*s2;
 	int		nbyte;
+	int		len;
 
 	s = va_arg(ap, char *);
 	IF_THEN(!s, s = "(null)");
@@ -65,17 +66,17 @@ int			convert_s(t_mods modifiers, va_list ap)
 		s2 = ft_strndup(s, modifiers.prcsn);
 	else
 		s2 = ft_strdup(s);
-	if (modifiers.flags.minus == 1)
+	if ((len = LEN(s2)) && modifiers.flags.minus == 1)
 	{
-		if (modifiers.width <= (int)ft_strlen(s2))
-			nbyte += (int)write(1, s2, ft_strlen(s2));
+		if (modifiers.width <= len)
+			nbyte += (int)write(1, s2, len);
 		else
-			nbyte += left_justify(modifiers, s2);
+			nbyte += left_justify(modifiers, s2, len);
 		IF_RETURN(1, (ft_pipewrench("-s", s2) + nbyte) - 1);
 	}
-	if (modifiers.width > (int)ft_strlen(s2))
-		nbyte += right_justify(modifiers, s2);
+	if (modifiers.width > len)
+		nbyte += right_justify(modifiers, s2, len);
 	else
-		nbyte += (int)write(1, s2, ft_strlen(s2));
+		nbyte += (int)write(1, s2, len);
 	IF_RETURN(1, (ft_pipewrench("-s", s2) + nbyte) - 1);
 }
