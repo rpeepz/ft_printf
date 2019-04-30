@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 22:34:52 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/30 02:05:26 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/30 05:09:45 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int				parse_string(char **str, va_list ap)
 	IF_RETURN(i == 3 && (*str)++, convert_c(modifier, ap));
 	IF_RETURN(i == 4 && (*str)++, convert_s(modifier, ap));
 //	IF_RETURN(i == 5 && (*str)++, convert_p(modifier, ap));
-//	IF_RETURN(i == 6 && (*str)++, convert_o(modifier, ap));
+	IF_RETURN(i == 6 && (*str)++, convert_o(modifier, ap));
 	IF_RETURN(i == 7 && (*str)++, convert_u(modifier, ap));
 	IF_RETURN((i == 8 || i == 18) && (*str)++, convert_x(modifier, ap, i));
 //	IF_RETURN((i == 9 || i == 19) && (*str)++, convert_f(modifier, ap, i));
