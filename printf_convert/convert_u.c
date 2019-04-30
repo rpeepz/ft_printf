@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 21:04:01 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/30 02:36:28 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/30 05:44:38 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ static int		pad_width(t_mods mod, int len, int nbyte, int neg)
 			IF_THEN(mod.flags.fzero && mod.prcsn == -1, pad_char = "0");
 			if (nbyte == 0)
 			{
-				if (mod.flags.space && mod.flags.fzero)
-					nbyte += write(1, " ", 1);
 				while (mod.width - len - neg > nbyte)
 					nbyte += (int)write(1, pad_char, 1);
 			}
@@ -52,14 +50,7 @@ static	int		right_justify(t_mods mod, char *num, int nbyte)
 	int		len;
 
 	len = (int)ft_strlen(num);
-	if (mod.flags.fplus && mod.flags.fzero && mod.prcsn < 0 &&
-		mod.width > len && (mod.flags.space = -1))
-		nbyte += (int)write(1, "+", 1);
 	nbyte = pad_width(mod, len, nbyte, mod.flags.fplus);
-	if ((mod.flags.fplus && mod.flags.space != -1))
-		nbyte += (int)write(1, "+", 1);
-	if (!mod.flags.fplus && mod.flags.space && !nbyte)
-		nbyte += (int)write(1, " ", 1);
 	if (mod.prcsn > len)
 		while ((mod.prcsn--) - len > 0)
 			nbyte += (int)write(1, "0", 1);
@@ -71,10 +62,6 @@ static	int		left_justify(t_mods mod, char *num, int nbyte)
 	int		len;
 
 	len = (int)ft_strlen(num);
-	if (mod.flags.fplus)
-		nbyte += (int)write(1, "+", 1);
-	else if (mod.flags.space)
-		nbyte += (int)write(1, " ", 1);
 	while (mod.prcsn-- > len)
 		nbyte += (int)write(1, "0", 1);
 	nbyte += (int)write(1, num, len);
@@ -106,13 +93,15 @@ static uint64_t	convert_length(int length, va_list ap)
 	return (u);
 }
 
-int				convert_u(t_mods modifiers, va_list ap)
+int				convert_u(t_mods modifiers, va_list ap, int i)
 {
 	uint64_t	num;
 	int			nbyte;
 	char		*str;
 
 	nbyte = 0;
+	if (i == 17)
+		modifiers.length = 'z';
 	num = convert_length(modifiers.length, ap);
 	if (modifiers.length == 'l' || modifiers.length / 2 == 'l' ||
 		modifiers.length == 'z')
