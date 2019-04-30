@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 21:14:12 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/29 21:45:59 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/30 00:32:49 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int					ft_countwords(char const *str, char c);
 char				**ft_strsplit(char const *s, char c);
 int					ft_intlen(int num);
 char				*ft_itoa_base(int n, int base);
+char				*ft_uitoa_base(unsigned int n, int base);
 char				*ft_itoa(int n);
 void				ft_putchar(char c);
 void				ft_putstr(const char *s);
