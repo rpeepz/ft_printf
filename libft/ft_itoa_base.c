@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 21:44:14 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/30 00:27:06 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/30 02:28:27 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ char	*ft_uitoa_base(unsigned int n, int base)
 	while (tmp /= base)
 		len++;
 	tmp = n;
-	IF_THEN(base == 10, len += 1);
 	if (!(str = ft_strnew(len)))
 		return (NULL);
 	while (len--)
@@ -59,7 +58,5 @@ char	*ft_uitoa_base(unsigned int n, int base)
 		str[len] = g_base[(tmp % base)];
 		tmp /= base;
 	}
-	if (n < 0 && base == 10)
-		str[0] = '-';
 	return (str);
 }
