@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 22:34:38 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/05/01 01:13:44 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/05/01 06:36:30 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,14 @@ int		main(void)
 	y = 3.14;
 	ft_printf("these are tests for my own printf vs libc printf\n\n");
 
+	   printf("lib  no flag      :\"%f\"\n", x);
+	ft_printf("ft_  no flag      :\"%f\"\n\n", x);
+	   printf("lib  .8           :\"%.8f\"\n", y);
+	ft_printf("ft_  .8           :\"%.8f\"\n\n", y);
+	   printf("lib  20w          :\"%20f\"\n", x);
+	ft_printf("ft_  20w          :\"%20f\"\n\n", x);
+	   printf("lib  10w          :\"%10f\"\n", y);
+	ft_printf("ft_  10w          :\"%10f\"\n\n", y);
 	return (0);
 }
 /*
