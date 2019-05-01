@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 20:46:20 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/30 20:04:27 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/05/01 07:11:08 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,42 @@ char		*num_string_base(long long num, int base)
 		num /= base;
 		len--;
 	}
+	return (str);
+}
+
+char		**num_string_modld(long double num, t_mods mod)
+{
+	char			**str;
+	long double		tmp;
+	int				res;
+	int				len;
+
+	IF_THEN(mod.prcsn == -1, mod.prcsn = 6);
+	str = (char **)malloc(sizeof(char *) * 3);
+	str[2] = NULL;
+	len = 0;
+	tmp = num - (int)num;
+	while (tmp < 10 && len < mod.prcsn)
+	{
+		if ((tmp * 10) - ((int)tmp * 10 > 0.45))
+		{
+			if ((tmp = tmp * 10) == 0)
+				break ;
+		}
+		else if ((tmp = tmp * 10) == 0)
+		{
+			tmp += 1;
+			break ;
+		}
+		len++;
+	}
+	IF_THEN(mod.prcsn != 0, res = tmp);
+	while (len++ < mod.prcsn)
+		res *= 10;
+	str[1] = ft_itoa(res);
+	tmp = num - (int)num;
+	res = num - tmp;
+	str[0] = ft_itoa(res);
 	return (str);
 }
 
