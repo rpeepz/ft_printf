@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/26 21:20:04 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/05/01 00:08:35 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/05/01 00:16:17 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int				convert_p(t_mods modifiers, va_list ap)
 		nbyte = -1;
 		while (tmp[++nbyte])
 			ft_tolower(tmp[nbyte]);
-		addr = strjoin("0x", tmp);
+		addr = ft_strjoin("0x", tmp);
 		free(tmp);
 	}
 	else
