@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 21:07:17 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/30 05:30:31 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/30 19:00:40 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		get_type_specifier(char x)
 	while (str[++i])
 		if (x == str[i])
 			return (i + 1);
-	str = ".i....UXFK.";
+	str = ".i...OUXFK.";
 	while (--i >= 0)
 		if (x == str[i])
 			return (i + 11);
