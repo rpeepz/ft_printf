@@ -6,14 +6,14 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 20:59:54 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/30 19:01:11 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/30 19:10:43 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
 /*
-**	o		The int (or variant) argument is converted to unsigned octal.
+**	o, O	The int (or variant) argument is converted to unsigned octal.
 **			The precision, if any, gives the minimum number of digits
 **			that must appear; if the converted value requires fewer digits,
 **			it is padded on the left with zeros.

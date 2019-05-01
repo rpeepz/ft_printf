@@ -6,14 +6,14 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 21:04:01 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/30 05:44:38 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/30 19:10:59 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
 /*
-**	u		The int (or variant) argument is converted to unsigned decimal.
+**	u, U	The int (or variant) argument is converted to unsigned decimal.
 **			The precision, if any, gives the minimum number of digits
 **			that must appear; if the converted value requires fewer digits,
 **			it is padded on the left with zeros.
