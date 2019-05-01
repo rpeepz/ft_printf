@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 20:59:54 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/30 05:26:55 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/30 19:01:11 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ static uint64_t	convert_length(int length, va_list ap)
 	return (o);
 }
 
-int				convert_o(t_mods modifiers, va_list ap)
+int				convert_o(t_mods modifiers, va_list ap, int i)
 {
 	uint64_t	num;
 	int			nbyte;
@@ -114,6 +114,7 @@ int				convert_o(t_mods modifiers, va_list ap)
 	char		*str;
 
 	nbyte = 0;
+	IF_THEN(i == 16, modifiers.length = 'z');
 	num = convert_length(modifiers.length, ap);
 	if (modifiers.length == 'l' || modifiers.length / 2 == 'l' ||
 		modifiers.length == 'z')
@@ -131,6 +132,5 @@ int				convert_o(t_mods modifiers, va_list ap)
 		nbyte += left_justify(modifiers, str, nbyte);
 	else
 		nbyte += right_justify(modifiers, str, nbyte);
-	free(str);
-	return (nbyte);
+	IF_RETURN(1, (ft_pipewrench("-s", str) + nbyte) - 1);
 }
