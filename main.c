@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 22:34:38 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/30 20:14:59 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/05/01 01:13:44 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,47 +50,79 @@ int		main(void)
 	y = 3.14;
 	ft_printf("these are tests for my own printf vs libc printf\n\n");
 
-	   printf("  -p noflags :\"%p\"\n", &s1);
-	ft_printf("ft-p noflags :\"%p\"\n\n", &s1);
-	   printf("  -p #       :\"%#p\"\n", &s1);
-	ft_printf("ft-p #       :\"%#p\"\n\n", &s1);
-	   printf("  -p +       :\"%+p\"\n", &s1);
-	ft_printf("ft-p +       :\"%+p\"\n\n", &s1);
-	   printf("  -p NULL nf :\"%p\"\n", NULL);
-	ft_printf("ft-p NULL nf :\"%p\"\n\n", NULL);
-	   printf("  -p sp      :\"% p\"\n", &d);
-	ft_printf("ft-p sp      :\"% p\"\n\n", &d);
-	   printf("  -p 5w      :\"%5p\"\n", &d);
-	ft_printf("ft-p 5w      :\"%5p\"\n\n", &d);
-	   printf("  -p 12w     :\"%12p\"\n", &d);
-	ft_printf("ft-p 12w     :\"%12p\"\n\n", &d);
-	   printf("  -p 012w    :\"%012p\"\n", &d);
-	ft_printf("ft-p 012w    :\"%012p\"\n\n", &d);
-	   printf("  -p 014w    :\"%014p\"\n", &d);
-	ft_printf("ft-p 014w    :\"%014p\"\n\n", &d);
-	   printf("  -p 015w    :\"%015p\"\n", &d);
-	ft_printf("ft-p 015w    :\"%015p\"\n\n", &d);
-	   printf("  -p 20w     :\"%20p\"\n", &d);
-	ft_printf("ft-p 20w     :\"%20p\"\n\n", &d);
-	   printf("  -p 020w    :\"%020p\"\n", &d);
-	ft_printf("ft-p 020w    :\"%020p\"\n\n", &d);
-	   printf("  -p - 20w   :\"%-20p\"\n", &d);
-	ft_printf("ft-p - 20w   :\"%-20p\"\n\n", &d);
-	   printf("  -p - 020w  :\"%-020p\"\n", &d);
-	ft_printf("ft-p - 020w  :\"%-020p\"\n\n", &d);
-	   printf("  -p .0      :\"%.0p\"\n", &d);
-	ft_printf("ft-p .0      :\"%.0p\"\n\n", &d);
-	   printf("  -p .noprec :\"%.p\"\n", &d);
-	ft_printf("ft-p .noprec :\"%.p\"\n\n", &d);
-	   printf("  -p .12     :\"%.12p\"\n", &d);
-	ft_printf("ft-p .12     :\"%.12p\"\n\n", &d);
-	   printf("  -p .14     :\"%.14p\"\n", &d);
-	ft_printf("ft-p .14     :\"%.14p\"\n\n", &d);
-	   printf("  -p .15     :\"%.15p\"\n", &c2);
-	ft_printf("ft-p .15     :\"%.15p\"\n\n", &c2);
 	return (0);
 }
 /*
+**	   printf("  -p noflags :\"%p\"\n", &s1);
+**	ft_printf("ft-p noflags :\"%p\"\n\n", &s1);
+**	   printf("  -p #       :\"%#p\"\n", &s1);
+**	ft_printf("ft-p #       :\"%#p\"\n\n", &s1);
+**	   printf("  -p +       :\"%+p\"\n", &s1);
+**	ft_printf("ft-p +       :\"%+p\"\n\n", &s1);
+**	   printf("  -p NULL nf :\"%p\"\n", NULL);
+**	ft_printf("ft-p NULL nf :\"%p\"\n\n", NULL);
+**	   printf("  -p sp      :\"% p\"\n", &d);
+**	ft_printf("ft-p sp      :\"% p\"\n\n", &d);
+**	   printf("  -p - 20w   :\"%-20p\"\n", &d);
+**	ft_printf("ft-p - 20w   :\"%-20p\"\n\n", &d);
+**	   printf("  -p - 020w  :\"%-020p\"\n", &d);
+**	ft_printf("ft-p - 020w  :\"%-020p\"\n\n", &d);
+**	   printf("  -p .0      :\"%.0p\"\n", &d);
+**	ft_printf("ft-p .0      :\"%.0p\"\n\n", &d);
+**	   printf("  -p .noprec :\"%.p\"\n", &d);
+**	ft_printf("ft-p .noprec :\"%.p\"\n\n", &d);
+**	   printf("  -p 12w     :\"%12p\"\n", &d);
+**	ft_printf("ft-p 12w     :\"%12p\"\n\n", &d);
+**	   printf("  -p 13w     :\"%13p\"\n", &d);
+**	ft_printf("ft-p 13w     :\"%13p\"\n\n", &d);
+**	   printf("  -p 14w     :\"%14p\"\n", &d);
+**	ft_printf("ft-p 14w     :\"%14p\"\n\n", &d);
+**	   printf("  -p 15w     :\"%15p\"\n", &d);
+**	ft_printf("ft-p 15w     :\"%15p\"\n\n", &d);
+**	   printf("  -p 20w     :\"%20p\"\n", &d);
+**	ft_printf("ft-p 20w     :\"%20p\"\n\n", &d);
+**	   printf("  -p 012w    :\"%012p\"\n", &d);
+**	ft_printf("ft-p 012w    :\"%012p\"\n\n", &d);
+**	   printf("  -p 013w    :\"%013p\"\n", &d);
+**	ft_printf("ft-p 013w    :\"%013p\"\n\n", &d);
+**	   printf("  -p 014w    :\"%014p\"\n", &d);
+**	ft_printf("ft-p 014w    :\"%014p\"\n\n", &d);
+**	   printf("  -p 015w    :\"%015p\"\n", &d);
+**	ft_printf("ft-p 015w    :\"%015p\"\n\n", &d);
+**	   printf("  -p 020w    :\"%020p\"\n", &d);
+**	ft_printf("ft-p 020w    :\"%020p\"\n\n", &d);
+**	   printf("  -p .12     :\"%.12p\"\n", &d);
+**	ft_printf("ft-p .12     :\"%.12p\"\n\n", &d);
+**	   printf("  -p .13     :\"%.13p\"\n", &c2);
+**	ft_printf("ft-p .13     :\"%.13p\"\n\n", &c2);
+**	   printf("  -p .14     :\"%.14p\"\n", &d);
+**	ft_printf("ft-p .14     :\"%.14p\"\n\n", &d);
+**	   printf("  -p .15     :\"%.15p\"\n", &d);
+**	ft_printf("ft-p .15     :\"%.15p\"\n\n", &d);
+**	   printf("  -p 13.12   :\"%13.12p\"\n", &d);
+**	ft_printf("ft-p 13.12   :\"%13.12p\"\n\n", &d);
+**	   printf("  -p 13.13   :\"%13.13p\"\n", &c2);
+**	ft_printf("ft-p 13.13   :\"%13.13p\"\n\n", &c2);
+**	   printf("  -p 13.14   :\"%13.14p\"\n", &d);
+**	ft_printf("ft-p 13.14   :\"%13.14p\"\n\n", &d);
+**	   printf("  -p 13.15   :\"%13.15p\"\n", &d);
+**	ft_printf("ft-p 13.15   :\"%13.15p\"\n\n", &d);
+**	   printf("  -p 14.12   :\"%14.12p\"\n", &d);
+**	ft_printf("ft-p 14.12   :\"%14.12p\"\n\n", &d);
+**	   printf("  -p 14.13   :\"%14.13p\"\n", &c2);
+**	ft_printf("ft-p 14.13   :\"%14.13p\"\n\n", &c2);
+**	   printf("  -p 14.14   :\"%14.14p\"\n", &d);
+**	ft_printf("ft-p 14.14   :\"%14.14p\"\n\n", &d);
+**	   printf("  -p 14.15   :\"%14.15p\"\n", &d);
+**	ft_printf("ft-p 14.15   :\"%14.15p\"\n\n", &d);
+**	   printf("  -p 15.12   :\"%15.12p\"\n", &d);
+**	ft_printf("ft-p 15.12   :\"%15.12p\"\n\n", &d);
+**	   printf("  -p 15.13   :\"%15.13p\"\n", &c2);
+**	ft_printf("ft-p 15.13   :\"%15.13p\"\n\n", &c2);
+**	   printf("  -p 15.14   :\"%15.14p\"\n", &d);
+**	ft_printf("ft-p 15.14   :\"%15.14p\"\n\n", &d);
+**	   printf("  -p 15.15   :\"%15.15p\"\n", &d);
+**	ft_printf("ft-p 15.15   :\"%15.15p\"\n\n", &d);
 **	printf("#8.5       : \"%#8.5x\"\n", 34);
 **	ft_printf("ft#8.5     : \"%#8.5x\"\n\n", 34);
 **	printf("#08.5      : \"%#08.5x\"\n", 34);
