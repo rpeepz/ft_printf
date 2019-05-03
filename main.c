@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 22:34:38 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/05/03 05:47:37 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/05/03 06:24:09 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,32 @@ int		main(void)
 	x = 1.1;
 	y = 2.44444445;
 	d = 1;
-	ft_printf("{%3*d}.\n", 10, 0);
-	printf("{%3*d}.\n", 10, 0);
 	ft_printf("%f\n", 3.9999999);
 	printf("%f\n", 3.9999999);
 	printf("{%10R}");
 	return (0);
 }
 /*
+**	ft_printf("my printf say    :");
+**	ft_printf("{%*d}\n", -5, 42);
+**	ft_printf("libc printf says :");
+**	printf("{%*d}\n", -5, 42);
+**	ft_printf("my printf say    :");
+**	ft_printf("{%*3d}\n", 0, 0);
+**	ft_printf("libc printf says :");
+**	printf("{%*3d}\n", 0, 0);
+**	ft_printf("my printf say    :");
+**	ft_printf("{%3*d}.\n", 2, 16);
+**	ft_printf("libc printf says :");
+**	printf("{%3*d}.\n\n", 2, 16);
+**	ft_printf("my printf say    :");
+**	ft_printf("{%1*d}.\n", 17, 98765);
+**	ft_printf("libc printf says :");
+**	printf("{%1*d}.\n\n", 17, 98765);
+**	ft_printf("my printf say    :");
+**	ft_printf("{%15*d}.\n", 17, 98765);
+**	ft_printf("libc printf says :");
+**	printf("{%15*d}.\n\n", 17, 98765);
 **	ft_printf("my printf say    :");
 **	ft_printf("{%5p}\n", 0);
 **	ft_printf("libc printf says :");
