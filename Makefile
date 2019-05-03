@@ -6,7 +6,7 @@
 #    By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/13 21:22:38 by rpapagna          #+#    #+#              #
-#    Updated: 2019/04/30 19:30:09 by rpapagna         ###   ########.fr        #
+#    Updated: 2019/05/03 00:10:30 by rpapagna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -113,16 +113,19 @@ NC		=\033[0m
 all:	$(NAME)
 
 $(NAME):
-		@echo "$(GREEN)Building libftprintf.a$(NC)"
+		@printf "$(GREEN)[$(NAME)$(NC)] Building [.:]\r"
 		@gcc $(CFLAGS) -c $(addprefix srcs/,$(SRCS)) $(addprefix printf_convert/,$(CONV)) $(addprefix libft/, $(LIBS)) $(INCL)
-		ar -rcs $(NAME) $(OBJ)
-		@echo "$(RED)done$(NC)"
+		@printf "$(GREEN)[$(NAME)$(NC)] Building [:.]\r"
+		@ar -rcs $(NAME) $(OBJ)
+		@printf "$(GREEN)[$(NAME)$(NC)] Building [.:]\r"
+		@printf "$(GREEN)[$(NAME)]$(RED) Build complete! [OK]$(NC)\n"
 
 clean:
-		@echo "$(YELLOW)removing objects$(NC)"
 		@rm -rf $(OBJ)
+		@printf "$(YELLOW)[libftprintf.a]$(NC) Removed object files!\n$(NC)"
 
 fclean: clean
 		@rm -rf $(NAME)
+		@printf "$(YELLOW)[libftprintf.a]$(RED) Removed $(NAME)!\n$(NC)"
 
 re: fclean all
