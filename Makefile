@@ -6,7 +6,7 @@
 #    By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/13 21:22:38 by rpapagna          #+#    #+#              #
-#    Updated: 2019/05/03 00:10:30 by rpapagna         ###   ########.fr        #
+#    Updated: 2019/05/03 01:10:20 by rpapagna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ CONV	= convert_c.c \
 		convert_percent.c \
 		convert_s.c \
 		convert_u.c \
-		convert_x.c
+		convert_x.c \
+		convert_b.c
 
 LIBS	= ft_atoi.c \
 		ft_bzero.c \
