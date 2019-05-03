@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 22:34:38 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/05/03 03:55:18 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/05/03 05:47:37 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,23 +51,59 @@ int		main(void)
 	x = 1.1;
 	y = 2.44444445;
 	d = 1;
-	ft_printf("my printf say    :");
-	ft_printf("%.p, %.0p\n", 0, 0);
-	ft_printf("libc printf says :");
-	printf("%.p, %.0p\n", 0, 0);
-	d = 1;
-	ft_printf("my printf say    :");
-	ft_printf("%.0p, %.p\n", 0, 0);
-	ft_printf("libc printf says :");
-	printf("%.0p, %.p\n", 0, 0);
-	d = 1;
-	ft_printf("my printf say    :");
-	ft_printf("% o|%+o\n", 42, 42);
-	ft_printf("libc printf says :");
-	printf("% o|%+o\n", 42, 42);
+	ft_printf("{%3*d}.\n", 10, 0);
+	printf("{%3*d}.\n", 10, 0);
+	ft_printf("%f\n", 3.9999999);
+	printf("%f\n", 3.9999999);
+	printf("{%10R}");
 	return (0);
 }
 /*
+**	ft_printf("my printf say    :");
+**	ft_printf("{%5p}\n", 0);
+**	ft_printf("libc printf says :");
+**	printf("{%5p}\n", 0);
+**	ft_printf("my printf say    :");
+**	ft_printf("%.5p, %.0p\n", 0, 0);
+**	ft_printf("libc printf says :");
+**	printf("%.5p, %.0p\n", 0, 0);
+**	ft_printf("my printf say    :");
+**	ft_printf("%.0p, %.p\n", 0, 0);
+**	ft_printf("libc printf says :");
+**	printf("%.0p, %.p\n", 0, 0);
+**	ft_printf("my printf say    :");
+**	ft_printf("%9.2p\n", 1234);
+**	ft_printf("libc printf says :");
+**	printf("%9.2p\n", 1234);
+**	ft_printf("my printf say    :");
+**	ft_printf("%2.9p\n", 1234);
+**	ft_printf("libc printf says :");
+**	printf("%2.9p\n", 1234);
+**	ft_printf("%Lf\n", y);
+**	printf("%Lf\n", y);
+**	y++;
+**	ft_printf("%Lf\n", y);
+**	printf("%Lf\n", y);
+**	ft_printf("my printf say    :");
+**	ft_printf("% o|%+o\n", 42, 42);
+**	ft_printf("libc printf says :");
+**	printf("% o|%+o\n", 42, 42);
+**	ft_printf("my printf say    :");
+**	ft_printf("%.5p, %.0p\n", 0, 0);
+**	ft_printf("libc printf says :");
+**	printf("%.5p, %.0p\n", 0, 0);
+**	ft_printf("my printf say    :");
+**	ft_printf("%.0p, %.p\n", 0, 0);
+**	ft_printf("libc printf says :");
+**	printf("%.0p, %.p\n", 0, 0);
+**	ft_printf("my printf say    :");
+**	ft_printf("%9.2p\n", 1234);
+**	ft_printf("libc printf says :");
+**	printf("%9.2p\n", 1234);
+**	ft_printf("my printf say    :");
+**	ft_printf("%2.9p\n", 1234);
+**	ft_printf("libc printf says :");
+**	printf("%2.9p\n", 1234);
 **	   printf("no prc     : %#.0f\n", 1.0);
 **	ft_printf("no prc  ft : %#.0f\n", 1.0);
 **	   printf("no prc     : %.0f\n", 1.0);
