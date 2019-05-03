@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 20:18:14 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/26 16:34:49 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/05/03 03:31:08 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 static t_flag	get_flags(char **str)
 {
-	t_flag	flags;
+	t_flag	fl;
 
-	flags.space = 0;
-	flags.pound = 0;
-	flags.fplus = 0;
-	flags.minus = 0;
-	flags.fzero = 0;
+	fl.space = 0;
+	fl.pound = 0;
+	fl.fplus = 0;
+	fl.minus = 0;
+	fl.fzero = 0;
 	while (is_flag(**str))
 	{
-		set_flags(&flags, **str);
+		set_flags(&fl, **str);
 		(*str)++;
 	}
-	return (flags);
+	return (fl);
 }
 
 static int		get_width(char **str, va_list ap)
@@ -109,7 +109,7 @@ t_mods			get_mods(char **str, va_list ap)
 {
 	t_mods modifiers;
 
-	modifiers.flags = get_flags(str);
+	modifiers.fl = get_flags(str);
 	modifiers.width = get_width(str, ap);
 	modifiers.prcsn = get_precision(str, ap);
 	modifiers.length = get_length(str);

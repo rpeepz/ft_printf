@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 18:52:45 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/22 13:50:11 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/05/03 03:31:08 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,13 @@ int				convert_c(t_mods modifiers, va_list ap)
 	unsigned char	c;
 
 	c = va_arg(ap, int);
-	if (modifiers.flags.minus == 1)
+	if (modifiers.fl.minus == 1)
 	{
 		return (left_justify(modifiers.width, c));
 	}
 	if (modifiers.width > 1)
 	{
-		return (right_justify(modifiers.width, modifiers.flags.fzero, c));
+		return (right_justify(modifiers.width, modifiers.fl.fzero, c));
 	}
 	return ((int)write(1, &c, 1));
 }

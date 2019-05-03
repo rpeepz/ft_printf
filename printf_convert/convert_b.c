@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 23:52:48 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/05/03 01:08:52 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/05/03 03:31:08 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ static int		pad_width(t_mods mod, int len, int nbyte, char *num)
 	{
 		if (mod.width > len)
 		{
-			IF_THEN(mod.flags.fzero && mod.prcsn == -1, pad_char = "0");
-			if (mod.flags.space && mod.flags.fzero && !nbyte)
+			IF_THEN(mod.fl.fzero && mod.prcsn == -1, pad_char = "0");
+			if (mod.fl.space && mod.fl.fzero && !nbyte)
 				nbyte += write(1, " ", 1);
-			if (mod.flags.pound && !nbyte && num[0] != '0')
+			if (mod.fl.pound && !nbyte && num[0] != '0')
 				len += 2;
 			while (mod.width - len > nbyte)
 				nbyte += (int)write(1, pad_char, 1);
@@ -38,9 +38,9 @@ static int		pad_width(t_mods mod, int len, int nbyte, char *num)
 	}
 	else
 	{
-		if (mod.flags.pound && !nbyte && num[0] == '\0')
+		if (mod.fl.pound && !nbyte && num[0] == '\0')
 			;
-		else if (mod.flags.pound && !nbyte)
+		else if (mod.fl.pound && !nbyte)
 			mod.prcsn += 2;
 		while (mod.width - mod.prcsn > nbyte)
 			nbyte += (int)write(1, pad_char, 1);
@@ -52,15 +52,15 @@ static	int		right_justify(t_mods mod, char *num, int nbyte, int capital)
 {
 	int		len;
 
-	if ((len = LEN(num)) && mod.flags.pound && num[0] != '\0')
+	if ((len = LEN(num)) && mod.fl.pound && num[0] != '\0')
 	{
-		if (mod.flags.fzero && mod.prcsn == -1)
+		if (mod.fl.fzero && mod.prcsn == -1)
 		{
 			IF_THEN(capital == 10, nbyte += (int)write(1, "0b", 2));
 			IF_THEN(capital == 20, nbyte += (int)write(1, "0B", 2));
 		}
 		nbyte = pad_width(mod, len, nbyte, num);
-		if (!mod.flags.fzero || mod.prcsn > -1)
+		if (!mod.fl.fzero || mod.prcsn > -1)
 		{
 			IF_THEN(capital == 10, nbyte += (int)write(1, "0b", 2));
 			IF_THEN(capital == 20, nbyte += (int)write(1, "0B", 2));
@@ -79,7 +79,7 @@ static	int		left_justify(t_mods mod, char *num, int nbyte, int capital)
 	int		len;
 
 	len = LEN(num);
-	if (mod.flags.pound && num[0] != '\0')
+	if (mod.fl.pound && num[0] != '\0')
 	{
 		if (capital == 20)
 			nbyte += (int)write(1, "0B", 2);
@@ -133,7 +133,7 @@ int				convert_b(t_mods modifiers, va_list ap, int i)
 	else
 		str = ft_uitoa_base(num, 2);
 	IF_THEN(num == 0 && modifiers.prcsn == 0, str[0] = '\0');
-	if (modifiers.flags.minus == 1)
+	if (modifiers.fl.minus == 1)
 		nbyte += left_justify(modifiers, str, nbyte, i);
 	else
 		nbyte += right_justify(modifiers, str, nbyte, i);

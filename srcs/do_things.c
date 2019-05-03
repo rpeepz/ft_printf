@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 20:46:20 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/05/02 21:47:52 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/05/03 03:31:08 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,18 @@ int			get_pre_float(long double number, int ret)
 	return (ret);
 }
 
-void		set_flags(t_flag *flags, char c)
+void		set_flags(t_flag *fl, char c)
 {
 	if (c == ' ')
-		flags->space = 1;
+		fl->space = 1;
 	else if (c == '#')
-		flags->pound = 1;
+		fl->pound = 1;
 	else if (c == '+')
-		flags->fplus = 1;
+		fl->fplus = 1;
 	else if (c == '-')
-		flags->minus = 1;
+		fl->minus = 1;
 	else if (c == '0')
-		flags->fzero = 1;
+		fl->fzero = 1;
 }
 
 char		*num_string_u_base(unsigned long long num, int base)
