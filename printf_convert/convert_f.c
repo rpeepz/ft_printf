@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 19:04:29 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/05/01 06:15:32 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/05/02 23:45:53 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,34 @@ static	int		left_justify(t_mods mod, char **num, int nbyte, int neg)
 	while (nbyte < mod.width)
 		nbyte += (int)write(1, " ", 1);
 	return (nbyte);
+}
+
+char			**num_string_modld(long double num, t_mods mod)
+{
+	char			**str;
+	long double		tmp;
+	int				res;
+	int				tmp_prcsn;
+
+	IF_THEN(mod.prcsn == -1, mod.prcsn = 6);
+	tmp_prcsn = mod.prcsn;
+	str = (char **)malloc(sizeof(*str) * 3);
+	str[0] = ft_itoa(get_pre_float(num, 0));
+	str[2] = 0;
+	IF_RETURN(mod.prcsn == 0 && (str[1] = ft_strdup("\0")), str);
+	tmp = num - (int)num;
+	while (tmp_prcsn-- > 0)
+		tmp *= 10.0;
+	IF_THEN(tmp - (int)tmp > 0.4999999999999999999, tmp += 1.0);
+	if ((res = (int)tmp) && res != 0)
+		str[1] = ft_itoa(res);
+	else
+	{
+		str[1] = ft_strnew(6);
+		while (mod.prcsn-- > 0)
+			str[1][tmp_prcsn++] = '0';
+	}
+	return (str);
 }
 
 int				convert_f(t_mods modifiers, va_list ap, int i)
