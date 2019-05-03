@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 22:47:33 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/05/02 21:48:32 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/05/02 23:49:55 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ void			print_one(char **str);
 int				get_pre_float(long double number, int ret);
 char			*num_string_base(long long num, int base);
 char			*num_string_u_base(unsigned long long num, int base);
-char			**num_string_modld(long double number, t_mods modifiers);
 t_mods			get_mods(char **str, va_list ap);
 int				is_flag(char x);
 int				get_type_specifier(char x);
