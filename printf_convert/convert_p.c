@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/26 21:20:04 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/05/03 04:30:50 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/05/03 05:47:59 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static	int		right_justify(t_mods mod, char *num, int nbyte)
 
 	len = (int)ft_strlen(num);
 	if ((mod.fl.fzero && mod.width > 14) || mod.prcsn > len ||
-		(mod.prcsn && num[2] == '0'))
+		(mod.prcsn > 0 && num[2] == '0'))
 	{
 		nbyte += (int)write(1, "0x", 2);
 		len -= 2;
