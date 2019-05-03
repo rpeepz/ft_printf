@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 20:46:20 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/05/01 20:48:16 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/05/02 21:47:52 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,16 @@ void		print_one(char **str)
 {
 	ft_putchar(**str);
 	(*str)++;
+}
+
+int			get_pre_float(long double number, int ret)
+{
+	long double		tmp;
+
+	tmp = number - (int)number;
+	tmp = number - tmp;
+	ret = (int)tmp;
+	return (ret);
 }
 
 void		set_flags(t_flag *flags, char c)
@@ -85,35 +95,6 @@ char		*num_string_base(long long num, int base)
 		num /= base;
 		len--;
 	}
-	return (str);
-}
-
-char		**num_string_modld(long double num, t_mods mod)
-{
-	char			**str;
-	long double		tmp;
-	int				res;
-	int				len;
-
-	IF_THEN(mod.prcsn == -1, mod.prcsn = 6);
-	len = mod.prcsn;
-	str = (char **)malloc(sizeof(*str) * 3);
-	str[2] = 0;
-	tmp = num - (int)num;
-	while (len-- > 0)
-		tmp *= 10;
-	if ((res = (int)tmp) && res != 0)
-		str[1] = ft_itoa(res);
-	else
-	{
-		str[1] = ft_strnew(6);
-		while (mod.prcsn-- > 0)
-			str[1][len++] = '0';
-	}
-	tmp = num - (int)num;
-	tmp = num - tmp;
-	res = (int)tmp;
-	str[0] = ft_itoa(res);
 	return (str);
 }
 
