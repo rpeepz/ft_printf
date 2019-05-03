@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 20:18:14 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/05/03 03:31:08 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/05/03 06:21:21 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 static t_flag	get_flags(char **str)
 {
-	t_flag	fl;
+	t_flag	flags;
 
-	fl.space = 0;
-	fl.pound = 0;
-	fl.fplus = 0;
-	fl.minus = 0;
-	fl.fzero = 0;
+	flags.space = 0;
+	flags.pound = 0;
+	flags.fplus = 0;
+	flags.minus = 0;
+	flags.fzero = 0;
 	while (is_flag(**str))
 	{
-		set_flags(&fl, **str);
+		set_flags(&flags, **str);
 		(*str)++;
 	}
-	return (fl);
+	return (flags);
 }
 
 static int		get_width(char **str, va_list ap)
@@ -34,13 +34,18 @@ static int		get_width(char **str, va_list ap)
 	int		width;
 
 	width = 0;
+	if (**str == '*')
+	{
+		width = va_arg(ap, int);
+		(*str)++;
+	}
 	if (ft_isdigit(**str))
 	{
 		width = ft_atoi(*str);
 		while (ft_isdigit(**str))
 			(*str)++;
 	}
-	else if (**str == '*')
+	if (**str == '*')
 	{
 		width = va_arg(ap, int);
 		(*str)++;
@@ -111,6 +116,11 @@ t_mods			get_mods(char **str, va_list ap)
 
 	modifiers.fl = get_flags(str);
 	modifiers.width = get_width(str, ap);
+	if (modifiers.width < 0)
+	{
+		modifiers.width *= -1;
+		modifiers.fl.minus = 1;
+	}
 	modifiers.prcsn = get_precision(str, ap);
 	modifiers.length = get_length(str);
 	return (modifiers);
