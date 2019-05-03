@@ -6,11 +6,18 @@
 #    By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/13 21:22:38 by rpapagna          #+#    #+#              #
-#    Updated: 2019/05/03 01:10:20 by rpapagna         ###   ########.fr        #
+#    Updated: 2019/05/03 08:21:39 by rpapagna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libftprintf.a
+
+#COLOR OUTPUT OPIONS
+RED		=\033[0;31m
+GREEN	=\033[0;32m
+YELLOW	=\033[0;33m
+MAG		=\033[0;35m
+NC		=\033[0m
 
 CFLAGS	= -Wall -Werror -Wextra
 INCL	= -I includes/
@@ -104,12 +111,6 @@ LIBS	= ft_atoi.c \
 OBJ		= $(patsubst %.c,%.o,$(SRCS))
 OBJ		+= $(patsubst %.c,%.o,$(CONV))
 OBJ		+= $(patsubst %.c,%.o,$(LIBS))
-
-#COLOR OUTPUT OPIONS
-RED		=\033[0;31m
-GREEN	=\033[0;32m
-YELLOW	=\033[0;33m
-NC		=\033[0m
 
 all:	$(NAME)
 
