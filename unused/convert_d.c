@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 23:11:29 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/26 12:46:45 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/05/03 03:31:08 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static	int		left_justify(t_mods mod, char *num, int len, int nbyte)
 {
 	if (*num != '-')
 	{
-		if (mod.flags.fplus)
+		if (mod.fl.fplus)
 			nbyte += (int)write(1, "+", 1);
-		else if (mod.flags.space)
+		else if (mod.fl.space)
 			nbyte += (int)write(1, " ", 1);
 	}
 	else if (*num == '-')
@@ -48,7 +48,7 @@ static int		pad_width(t_mods mod, int len, int nbyte, char *num)
 	{
 		if (mod.width > len)
 		{
-			if (mod.flags.fzero)
+			if (mod.fl.fzero)
 				pad_char = "0";
 			while (mod.width - len > nbyte)
 				nbyte += (int)write(1, pad_char, 1);
@@ -56,7 +56,7 @@ static int		pad_width(t_mods mod, int len, int nbyte, char *num)
 	}
 	else
 	{
-		if (mod.flags.fzero && !nbyte && *num == '-')
+		if (mod.fl.fzero && !nbyte && *num == '-')
 			mod.width -= 1;
 		while (mod.width - mod.prcsn > nbyte)
 			nbyte += (int)write(1, pad_char, 1);
@@ -68,23 +68,23 @@ static int		right_justify(t_mods mod, char *num, int len, int nbyte)
 {
 	if (*num == '-')
 	{
-		if (mod.flags.fzero && mod.width > len && mod.prcsn == -1)
+		if (mod.fl.fzero && mod.width > len && mod.prcsn == -1)
 			IF_THEN(nbyte += (int)write(1, num++, 1), len--);
 		nbyte = pad_width(mod, len, nbyte, num);
 		IF_THEN(*num == '-' && (nbyte += (int)write(1, num++, 1)), len--);
 	}
 	else
 	{
-		IF_THEN(mod.flags.fplus && !mod.flags.fzero, mod.width -= 1);
-		if (mod.flags.fplus && mod.flags.fzero)
+		IF_THEN(mod.fl.fplus && !mod.fl.fzero, mod.width -= 1);
+		if (mod.fl.fplus && mod.fl.fzero)
 			nbyte += (int)write(1, "+", 1);
 		nbyte = pad_width(mod, len, nbyte, num);
-		if (!mod.flags.fplus && mod.flags.space && !nbyte)
+		if (!mod.fl.fplus && mod.fl.space && !nbyte)
 			nbyte += (int)write(1, " ", 1);
-		if (mod.flags.fplus && !mod.flags.fzero)
+		if (mod.fl.fplus && !mod.fl.fzero)
 			IF_THEN(nbyte += (int)write(1, "+", 1), mod.width += 1);
 	}
-	if (mod.flags.fzero && mod.prcsn < len)
+	if (mod.fl.fzero && mod.prcsn < len)
 		while (mod.width - len > nbyte)
 			nbyte += (int)write(1, "0", 1);
 	if (mod.prcsn > len)
@@ -126,7 +126,7 @@ int				convert_d(t_mods modifiers, va_list ap)
 	num = convert_length(modifiers.length, ap);
 	str = ft_itoa(num);
 	IF_THEN(str[0] == '0' && modifiers.prcsn == 0, str[0] = '\0');
-	if (modifiers.flags.minus == 1)
+	if (modifiers.fl.minus == 1)
 		nbyte += left_justify(modifiers, str, (int)ft_strlen(str), 0);
 	else
 		nbyte += right_justify(modifiers, str, (int)ft_strlen(str), 0);
