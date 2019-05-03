@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 22:34:38 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/05/02 23:47:37 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/05/03 03:55:18 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,22 @@
 
 int		main(void)
 {
-	int		a1;
-	int		a2;
-	int		b1;
-	int		b2;
-	int		c1;
-	int		c2;
-	int		n1;
-	int		n2;
-	char	d;
-	char	e;
-	char	f;
-	char	*s1;
-	char	*s2;
-	char	**str;
-	double	x;
+	int			a1;
+	int			a2;
+	int			b1;
+	int			b2;
+	int			c1;
+	int			c2;
+	int			n1;
+	int			n2;
+	char		d;
+	char		e;
+	char		f;
+	char		*s1;
+	char		*s2;
+	char		**str;
+	double		x;
 	long double	y;
-	t_mods	mod;
 
 	ft_printf("these are tests for my own printf vs libc printf\n\n");
 	a1 = 1;
@@ -51,23 +50,61 @@ int		main(void)
 	s2 = "hello";
 	x = 1.1;
 	y = 2.44444445;
-
-	printf("no prc : %Lf\n", y);
-	printf(".6     : %.6Lf\n", y);
-	printf(".7     : %.7Lf\n", y);
-	printf(".8     : %.8Lf\n", y);
-	printf(".9     : %.9Lf\n\n", y);
-	   printf("lib  no flag      :\"%f\"\n", x);
-	ft_printf("ft_  no flag      :\"%f\"\n\n", x);
-	   printf("lib  .8           :\"%.8f\"\n", y);
-	ft_printf("ft_  .8           :\"%.8f\"\n\n", y);
-	   printf("lib  20w          :\"%20f\"\n", x);
-	ft_printf("ft_  20w          :\"%20f\"\n\n", x);
-	   printf("lib  10w          :\"%10f\"\n", y);
-	ft_printf("ft_  10w          :\"%10f\"\n\n", y);
+	d = 1;
+	ft_printf("my printf say    :");
+	ft_printf("%.p, %.0p\n", 0, 0);
+	ft_printf("libc printf says :");
+	printf("%.p, %.0p\n", 0, 0);
+	d = 1;
+	ft_printf("my printf say    :");
+	ft_printf("%.0p, %.p\n", 0, 0);
+	ft_printf("libc printf says :");
+	printf("%.0p, %.p\n", 0, 0);
+	d = 1;
+	ft_printf("my printf say    :");
+	ft_printf("% o|%+o\n", 42, 42);
+	ft_printf("libc printf says :");
+	printf("% o|%+o\n", 42, 42);
 	return (0);
 }
 /*
+**	   printf("no prc     : %#.0f\n", 1.0);
+**	ft_printf("no prc  ft : %#.0f\n", 1.0);
+**	   printf("no prc     : %.0f\n", 1.0);
+**	ft_printf("no prc  ft : %.0f\n", 1.0);
+**	   printf("no prc -   : %-#5.0f\n", 1.0);
+**	ft_printf("no prc -ft : %-#5.0f\n", 1.0);
+**	   printf("no prc -   : %-5.0f\n", 1.0);
+**	ft_printf("no prc -ft : %-5.0f\n", 1.0);
+**	   printf(".0         : %.0f\n", 0);
+**	ft_printf(".0      ft : %.0f\n", 0);
+**	   printf(".1         : %.1f\n", 0);
+**	ft_printf(".1      ft : %.1f\n", 0);
+**	   printf(".2         : %.2f\n", 0);
+**	ft_printf(".2      ft : %.2f\n", 0);
+**	   printf(".3         : %.3f\n", 0);
+**	ft_printf(".3      ft : %.3f\n", 0);
+**	   printf(".4         : %.4f\n", 0);
+**	ft_printf(".4      ft : %.4f\n", 0);
+**	   printf(".5         : %.5f\n", 0);
+**	ft_printf(".5      ft : %.5f\n", 0);
+**	   printf(".6         : %.6f\n", 0);
+**	ft_printf(".6      ft : %.6f\n", 0);
+**	   printf(".7         : %.7f\n", 0);
+**	ft_printf(".7      ft : %.7f\n", 0);
+**	   printf(".8         : %.8f\n", 0);
+**	ft_printf(".8      ft : %.8f\n", 0);
+**	   printf(".9         : %.9f\n", 0);
+**	ft_printf(".9      ft : %.9f\n", 0);
+**	   printf("lib  no flag      :\"%f\"\n", x);
+**	ft_printf("ft_  no flag      :\"%f\"\n\n", x);
+**	   printf("lib  .8           :\"%.8f\"\n", y);
+**	ft_printf("ft_  .8           :\"%.8f\"\n\n", y);
+**	   printf("lib  20w          :\"%20f\"\n", x);
+**	ft_printf("ft_  20w          :\"%20f\"\n\n", x);
+**	   printf("lib  10w          :\"%10f\"\n", y);
+**	ft_printf("ft_  10w          :\"%10f\"\n\n", y);
+**	ft_printf("%-50.15b\n %20b", c1, 255);
 **	mod.prcsn = -1;
 **	str = num_string_modld(y, mod);
 **	mod.prcsn = 6;
