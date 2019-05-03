@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 22:34:38 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/05/01 06:36:30 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/05/02 23:47:37 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,12 @@ int		main(void)
 	char	f;
 	char	*s1;
 	char	*s2;
+	char	**str;
 	double	x;
-	float	y;
+	long double	y;
+	t_mods	mod;
 
+	ft_printf("these are tests for my own printf vs libc printf\n\n");
 	a1 = 1;
 	a2 = 2;
 	b1 = 10;
@@ -47,9 +50,13 @@ int		main(void)
 	s1 = "hi";
 	s2 = "hello";
 	x = 1.1;
-	y = 3.14;
-	ft_printf("these are tests for my own printf vs libc printf\n\n");
+	y = 2.44444445;
 
+	printf("no prc : %Lf\n", y);
+	printf(".6     : %.6Lf\n", y);
+	printf(".7     : %.7Lf\n", y);
+	printf(".8     : %.8Lf\n", y);
+	printf(".9     : %.9Lf\n\n", y);
 	   printf("lib  no flag      :\"%f\"\n", x);
 	ft_printf("ft_  no flag      :\"%f\"\n\n", x);
 	   printf("lib  .8           :\"%.8f\"\n", y);
@@ -61,6 +68,24 @@ int		main(void)
 	return (0);
 }
 /*
+**	mod.prcsn = -1;
+**	str = num_string_modld(y, mod);
+**	mod.prcsn = 6;
+**	str = num_string_modld(y, mod);
+**	mod.prcsn = 7;
+**	str = num_string_modld(y, mod);
+**	mod.prcsn = 8;
+**	str = num_string_modld(y, mod);
+**	mod.prcsn = 9;
+**	str = num_string_modld(y, mod);
+**
+**  printf(".0     : %.0Lf\n", y);
+**  printf(".1     : %.1Lf\n", y);
+**  printf(".2     : %.2Lf\n", y);
+**  printf(".3     : %.3Lf\n", y);
+**	printf(".4     : %.4Lf\n", y);
+**	printf(".5     : %.5Lf\n", y);
+**
 **	   printf("  -p noflags :\"%p\"\n", &s1);
 **	ft_printf("ft-p noflags :\"%p\"\n\n", &s1);
 **	   printf("  -p #       :\"%#p\"\n", &s1);
