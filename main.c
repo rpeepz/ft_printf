@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 22:34:38 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/05/03 06:24:09 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/05/05 22:17:33 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,50 @@ int		main(void)
 	x = 1.1;
 	y = 2.44444445;
 	d = 1;
+	ft_printf("%.0f\n", 3.9999999);
+	printf("%.0f\n\n", 3.9999999);
+	
 	ft_printf("%f\n", 3.9999999);
-	printf("%f\n", 3.9999999);
-	printf("{%10R}");
+	printf("%f\n\n", 3.9999999);
+	
+	ft_printf("% #.0f\n", 3.9999999);
+	printf("% #.0f\n\n", 3.9999999);
+	
+	ft_printf("% .0f\n", 3.9999999);
+	printf("% .0f\n\n", 3.9999999);
+	
+	ft_printf("% 5.0f\n", -3.9999999);
+	printf("% 5.0f\n\n", -3.9999999);
+	
+	ft_printf("%+ f\n", 3.9999999);
+	printf("%+ f\n\n", 3.9999999);
+	
+	ft_printf("%+ f\n", 3.9999999);
+	printf("%+ f\n\n", 3.9999999);
+
 	return (0);
 }
 /*
+**	ft_printf("%-f\n", 3.9999999);
+**	printf("%-f\n\n", 3.9999999);
+**	
+**	ft_printf("% -#.0f\n", 3.9999999);
+**	printf("% -#.0f\n\n", 3.9999999);
+**	
+**	ft_printf("% -.0f\n", 3.9999999);
+**	printf("% -.0f\n\n", 3.9999999);
+**	
+**	ft_printf("% -f\n", -3.9999999);
+**	printf("% -f\n\n", -3.9999999);
+**	
+**	ft_printf("%+ -f\n", 3.9999999);
+**	printf("%+ -f\n\n", 3.9999999);
+**	
+**	ft_printf("%+ -f\n", 3.9999999);
+**	printf("%+ -f\n\n", 3.9999999);
+**	ft_printf("   {%#15.8b}\n", 1UL << 7);
+**	ft_printf("   {%#15.8b}\n", 1UL << 5);
+**	ft_printf("   {%#15.8b}\n", 1UL << 4);
 **	ft_printf("my printf say    :");
 **	ft_printf("{%*d}\n", -5, 42);
 **	ft_printf("libc printf says :");
