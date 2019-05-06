@@ -6,7 +6,7 @@
 #    By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/13 21:22:38 by rpapagna          #+#    #+#              #
-#    Updated: 2019/05/03 08:21:39 by rpapagna         ###   ########.fr        #
+#    Updated: 2019/05/05 18:21:34 by rpapagna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -115,19 +115,22 @@ OBJ		+= $(patsubst %.c,%.o,$(LIBS))
 all:	$(NAME)
 
 $(NAME):
-		@printf "$(GREEN)[$(NAME)$(NC)] Building [.:]\r"
-		@gcc $(CFLAGS) -c $(addprefix srcs/,$(SRCS)) $(addprefix printf_convert/,$(CONV)) $(addprefix libft/, $(LIBS)) $(INCL)
-		@printf "$(GREEN)[$(NAME)$(NC)] Building [:.]\r"
+		@printf "[$(GREEN)$(NAME)$(NC)]\t[$(MAG):/:$(NC)]\r"
+		@gcc $(CFLAGS) -c $(addprefix srcs/,$(SRCS)) $(INCL)
+		@printf "[$(GREEN)$(NAME)$(NC)]\t[$(MAG):\:$(NC)]\r"
+		@gcc $(CFLAGS) -c $(addprefix printf_convert/,$(CONV)) $(INCL)
+		@printf "[$(GREEN)$(NAME)$(NC)]\t[$(MAG):/:$(NC)]\r"
+		@gcc $(CFLAGS) -c $(addprefix libft/, $(LIBS)) $(INCL)
+		@printf "[$(GREEN)$(NAME)$(NC)]\t[$(MAG):\:$(NC)]\r"
 		@ar -rcs $(NAME) $(OBJ)
-		@printf "$(GREEN)[$(NAME)$(NC)] Building [.:]\r"
-		@printf "$(GREEN)[$(NAME)]$(RED) Build complete! [OK]$(NC)\n"
+		@printf "[$(GREEN)$(NAME)$(NC)]\t[$(MAG)OK!$(NC)]\n"
 
 clean:
+		@printf "[$(GREEN)obj$(NC)]\t\tRm objects\n"
 		@rm -rf $(OBJ)
-		@printf "$(YELLOW)[libftprintf.a]$(NC) Removed object files!\n$(NC)"
 
 fclean: clean
+		@printf "[$(RED)$(NAME)$(NC)]\tRm binary\n"
 		@rm -rf $(NAME)
-		@printf "$(YELLOW)[libftprintf.a]$(RED) Removed $(NAME)!\n$(NC)"
 
 re: fclean all
