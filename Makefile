@@ -6,7 +6,7 @@
 #    By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/13 21:22:38 by rpapagna          #+#    #+#              #
-#    Updated: 2019/05/05 18:23:43 by rpapagna         ###   ########.fr        #
+#    Updated: 2019/05/26 01:48:44 by rpapagna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,12 @@ NC		=\033[0m
 
 CFLAGS	= -Wall -Werror -Wextra
 INCL	= -I includes/
+
+S_SRCS	= ft_sprintf.c \
+		get_mod.c \
+		c_to_buf.c \
+		i_to_buf.c \
+		s_to_buf.c
 
 SRCS 	= do_things.c \
 		finders.c \
@@ -109,6 +115,7 @@ LIBS	= ft_atoi.c \
 		get_next_line.c
 
 OBJ		= $(patsubst %.c,%.o,$(SRCS))
+OBJ		+= $(patsubst %.c,%.o,$(S_SRCS))
 OBJ		+= $(patsubst %.c,%.o,$(CONV))
 OBJ		+= $(patsubst %.c,%.o,$(LIBS))
 
@@ -116,12 +123,14 @@ all:	$(NAME)
 
 $(NAME):
 		@printf "[$(GREEN)$(NAME)$(NC)]\t[$(MAG):/:$(NC)]\r"
-		@gcc $(CFLAGS) -c $(addprefix srcs/,$(SRCS)) $(INCL)
+		@gcc -g $(CFLAGS) -c $(addprefix srcs/,$(SRCS)) $(INCL)
 		@printf "[$(GREEN)$(NAME)$(NC)]\t[$(MAG):\:$(NC)]\r"
-		@gcc $(CFLAGS) -c $(addprefix printf_convert/,$(CONV)) $(INCL)
+		@gcc -g $(CFLAGS) -c $(addprefix printf_convert/,$(CONV)) $(INCL)
 		@printf "[$(GREEN)$(NAME)$(NC)]\t[$(MAG):/:$(NC)]\r"
-		@gcc $(CFLAGS) -c $(addprefix libft/, $(LIBS)) $(INCL)
+		@gcc -g $(CFLAGS) -c $(addprefix libft/, $(LIBS)) $(INCL)
 		@printf "[$(GREEN)$(NAME)$(NC)]\t[$(MAG):\:$(NC)]\r"
+		@gcc -g $(CFLAGS) -c $(addprefix s_srcs/,$(S_SRCS)) $(INCL)
+		@printf "[$(GREEN)$(NAME)$(NC)]\t[$(MAG):/:$(NC)]\r"
 		@ar -rcs $(NAME) $(OBJ)
 		@printf "[$(GREEN)$(NAME)$(NC)]\t[$(MAG)OK!$(NC)]\n"
 
