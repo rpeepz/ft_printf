@@ -25,3 +25,12 @@ reflection and time away to get back on the right track. things are moving
 quite well as I can think about solutions both in front of, and away from
 the computer. Im slowly understanding the process of algorithm development
 all on my own.
+
+entry: (may, 26, 02:06)
+started and finished my work for sprintf, not a very hard addition although
+working around norm was something that I just have lost the patience for.
+Some funcitons can likely be trimmed down to be a tad bit shorter, but
+making them funcitonal to my standard was the main priority. The conversions
+I finished tonight were for strings, integers, and chars. These main three
+will be the ones I predict I will be using in my future projects should it
+require an sprintf call.
