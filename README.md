@@ -1,8 +1,16 @@
 # ft_printf
-Here lies the repository of RPAPAGNA in which hold the work of my own
-poor process of rewriting libc printf in C
+This repository holds the work of my own
+process of rewriting libc printf in C
 
-`brought to you by Carls Junior`
+
+
+
+
+
+
+
+
+Journal entry style documentation during the time I spent on this project
 
 entry: (april, 8, 23:52)
 using template after failed attempts Ive gained the knowledge through
